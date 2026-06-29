@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — 홍길동</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ════════════════════════════
+       Tokens — index_v2.html과 동일
+    ════════════════════════════ */
+    :root {
+      --bg:            #F3F8F5;
+      --surface:       #FFFFFF;
+      --surface-2:     #EAF3EE;
+      --border:        #C4DAD0;
+      --border-light:  #DCF0E6;
+
+      --accent:        #3A876A;
+      --accent-mid:    #53A083;
+      --accent-light:  #CBE8D8;
+      --accent-muted:  #99C4B0;
+      --accent-hover:  #2C6E53;
+
+      --text-primary:  #192820;
+      --text-secondary:#445E52;
+      --text-muted:    #7A9A8C;
+
+      --shadow-sm: 0 1px 4px rgba(42,110,85,0.07);
+      --shadow-md: 0 6px 24px rgba(42,110,85,0.13);
+
+      --radius:    10px;
+      --radius-sm: 6px;
+      --radius-lg: 16px;
+    }
+
+    /* ════════════════════════════
+       Reset
+    ════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ════════════════════════════
+       Nav — index_v2와 동일 구조
+    ════════════════════════════ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(243,248,245,0.93);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+    .nav-logo {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.2px;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: background 0.18s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-download:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* ════════════════════════════
+       Page wrapper
+    ════════════════════════════ */
+    .page {
+      max-width: 860px;
+      margin: 48px auto 80px;
+      padding: 0 5%;
+    }
+
+    /* ════════════════════════════
+       Resume card — white surface
+    ════════════════════════════ */
+    .resume-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    /* ── Top accent bar ── */
+    .resume-card::before {
+      content: '';
+      display: block;
+      height: 4px;
+      background: linear-gradient(to right, var(--accent), var(--accent-mid));
+    }
+
+    /* ════════════════════════════
+       Resume header
+    ════════════════════════════ */
+    .resume-header {
+      padding: 36px 40px 28px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+    }
+    .resume-name {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .resume-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .resume-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .contact-item svg { color: var(--accent-muted); flex-shrink: 0; }
+    .contact-item a { color: var(--text-secondary); transition: color 0.15s; }
+    .contact-item a:hover { color: var(--accent); }
+
+    /* ════════════════════════════
+       Resume body
+    ════════════════════════════ */
+    .resume-body {
+      padding: 0 40px 36px;
+    }
+
+    /* ── Section ── */
+    .r-section {
+      padding-top: 28px;
+    }
+    .r-section + .r-section {
+      border-top: 1px solid var(--border-light);
+      margin-top: 4px;
+    }
+    .r-section-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .r-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+    }
+
+    /* ── Summary ── */
+    .r-summary {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .r-summary strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── Skills grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .skill-row {
+      background: var(--surface-2);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+    }
+    .skill-category {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 2px 9px;
+      border-radius: 20px;
+      border: 1px solid var(--accent-muted);
+    }
+
+    /* ── Projects ── */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .project-item {
+      border: 1.5px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 14px 16px;
+      background: var(--surface);
+      transition: box-shadow 0.2s;
+    }
+    .project-item:hover { box-shadow: var(--shadow-sm); }
+    .project-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .project-item-left {}
+    .project-item-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .project-item-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .project-item-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .project-period {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+    }
+    .project-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--accent-muted);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .project-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .project-bullets li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .project-bullets li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0px;
+      line-height: 1.65;
+    }
+    .project-bullets li strong { color: var(--text-primary); font-weight: 600; }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .stack-tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 1px 8px;
+      border-radius: 4px;
+    }
+
+    /* ── Education ── */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .edu-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .edu-detail {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .edu-period {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Certifications ── */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .cert-name {
+      font-size: 13.5px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .cert-issuer {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .cert-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════
+       Print styles
+    ════════════════════════════ */
+    @media print {
+      body { background: #fff; font-size: 13px; }
+      nav { display: none; }
+      .page { margin: 0; padding: 0; max-width: 100%; }
+      .resume-card {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .resume-card::before { height: 3px; }
+      .resume-header { padding: 24px 32px 20px; }
+      .resume-body { padding: 0 32px 28px; }
+      .r-section { padding-top: 20px; }
+      .project-item:hover { box-shadow: none; }
+    }
+
+    /* ════════════════════════════
+       Responsive
+    ════════════════════════════ */
+    @media (max-width: 640px) {
+      .resume-header { flex-direction: column; align-items: flex-start; }
+      .resume-contact { align-items: flex-start; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .resume-header, .resume-body { padding-left: 24px; padding-right: 24px; }
+      .edu-item { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M12 7H2M6 11l-4-4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      포트폴리오로 돌아가기
+    </a>
+    <div class="nav-right">
+      <span class="nav-logo">Resume</span>
+      <button class="btn-download" onclick="window.print()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        PDF 저장
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ RESUME ══════════ -->
+<div class="page">
+  <div class="resume-card">
+
+    <!-- Header -->
+    <div class="resume-header">
+      <div>
+        <div class="resume-title">Data Analyst · Data Scientist</div>
+        <div class="resume-name">홍길동</div>
+        <!-- TODO: 이름 교체 -->
+      </div>
+      <div class="resume-contact">
+        <div class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:your@email.com">your@email.com</a>
+          <!-- TODO: 이메일 교체 -->
+        </div>
+        <div class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/YOUR_USERNAME" target="_blank">github.com/YOUR_USERNAME</a>
+          <!-- TODO: GitHub 교체 -->
+        </div>
+        <div class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://YOUR_USERNAME.github.io" target="_blank">YOUR_USERNAME.github.io</a>
+          <!-- TODO: 포트폴리오 URL 교체 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="resume-body">
+
+      <!-- Summary -->
+      <div class="r-section">
+        <div class="r-section-label">Summary</div>
+        <p class="r-summary">
+          데이터에서 <strong>의사결정 근거를 설계</strong>하는 데이터 분석가.
+          EDA 인사이트를 피처 설계로 연결하고, 분석의 모든 판단을 수치로 정당화합니다.
+          LangGraph·RAG 기반 AI 서비스 아키텍처 설계 경험을 보유하며,
+          <strong>팀 내 분석 방향 설정과 QA 리드</strong> 역할을 자주 수행합니다.
+        </p>
+        <!-- TODO: Summary 내용 본인에 맞게 수정 -->
+      </div>
+
+      <!-- Skills -->
+      <div class="r-section">
+        <div class="r-section-label">Skills</div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <div class="skill-category">ML / Modeling</div>
+            <div class="skill-tags">
+              <span class="tag">XGBoost</span>
+              <span class="tag">LightGBM</span>
+              <span class="tag">CatBoost</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">PyTorch</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-category">Data Engineering</div>
+            <div class="skill-tags">
+              <span class="tag">pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">SQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Parquet</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-category">AI / LLM</div>
+            <div class="skill-tags">
+              <span class="tag">LangGraph</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Neo4j</span>
+              <span class="tag">ChromaDB</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-category">Visualization / Tools</div>
+            <div class="skill-tags">
+              <span class="tag">matplotlib</span>
+              <span class="tag">Plotly</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="r-section">
+        <div class="r-section-label">Projects</div>
+        <div class="project-list">
+
+          <!-- TrendIt -->
+          <div class="project-item">
+            <div class="project-item-header">
+              <div class="project-item-left">
+                <div class="project-item-name">TrendIt</div>
+                <div class="project-item-sub">YouTube KR 트렌딩 지속성 예측 ML 플랫폼 · 팀 프로젝트 (5인)</div>
+              </div>
+              <div class="project-item-meta">
+                <span class="project-period">2026.04 – 05</span>
+                <span class="project-category">ML · Analytics</span>
+              </div>
+            </div>
+            <ul class="project-bullets">
+              <li>872K 스냅샷 데이터 기반 T0/T0+24h <strong>모델 분리 구조 설계</strong> — PR-AUC <strong>+13.6%</strong> 향상 (0.582 → 0.661) 정량 검증</li>
+              <li>카테고리 편향 보정 복합 타겟 변수 <strong>TDI 설계</strong> 및 클러스터링 데이터 누수 탐지·격리 주도</li>
+              <li>XGBoost + LightGBM 앙상블 최종 <strong>AUC-ROC 0.83</strong>, 3구간 분류 AUC 0.848 달성</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">XGBoost</span>
+              <span class="stack-tag">LightGBM</span>
+              <span class="stack-tag">CatBoost</span>
+              <span class="stack-tag">PyTorch</span>
+              <span class="stack-tag">FastAPI</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+          </div>
+
+          <!-- 이젠, 안쉼 -->
+          <div class="project-item">
+            <div class="project-item-header">
+              <div class="project-item-left">
+                <div class="project-item-name">이젠, 안쉼</div>
+                <div class="project-item-sub">청년 지원 통합 검색 에이전트 (LangGraph RAG) · 팀 프로젝트 (5인)</div>
+              </div>
+              <div class="project-item-meta">
+                <span class="project-period">2026.05 – 06</span>
+                <span class="project-category">AI · Backend</span>
+              </div>
+            </div>
+            <ul class="project-bullets">
+              <li>FastAPI 서비스 레이어 설계 및 LangGraph 엔드포인트 연동 구현, <strong>시스템 아키텍처 전체 주도</strong></li>
+              <li>Neo4j + ChromaDB <strong>하이브리드 RAG 파이프라인 설계</strong> — Graceful Degradation 폴백 구조 포함</li>
+              <li>LangGraph 노드 플로우 리뷰 및 <strong>팀 QA 리드</strong> 수행</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">LangGraph</span>
+              <span class="stack-tag">LangChain</span>
+              <span class="stack-tag">FastAPI</span>
+              <span class="stack-tag">Neo4j</span>
+              <span class="stack-tag">ChromaDB</span>
+              <span class="stack-tag">Streamlit</span>
+            </div>
+          </div>
+
+          <!-- Placeholder: 추가 프로젝트 -->
+          <!--
+          <div class="project-item">
+            <div class="project-item-header">
+              <div class="project-item-left">
+                <div class="project-item-name">프로젝트 이름</div>
+                <div class="project-item-sub">부제목 · 팀/개인</div>
+              </div>
+              <div class="project-item-meta">
+                <span class="project-period">2026.MM – MM</span>
+                <span class="project-category">카테고리</span>
+              </div>
+            </div>
+            <ul class="project-bullets">
+              <li>bullet 1</li>
+              <li>bullet 2</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+            </div>
+          </div>
+          -->
+
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="r-section">
+        <div class="r-section-label">Education</div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-name">XX대학교</div>
+            <!-- TODO: 대학교 이름 교체 -->
+            <div class="edu-detail">XX학과 · 학사</div>
+            <!-- TODO: 학과 교체 -->
+          </div>
+          <div class="edu-period">20XX.03 – 20XX.02</div>
+          <!-- TODO: 기간 교체 -->
+        </div>
+      </div>
+
+      <!-- Certifications (선택) -->
+      <div class="r-section">
+        <div class="r-section-label">Certifications</div>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div>
+              <div class="cert-name">자격증 이름</div>
+              <!-- TODO: 자격증 교체 또는 섹션 삭제 -->
+              <div class="cert-issuer">발급 기관</div>
+            </div>
+            <div class="cert-date">20XX.MM</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /resume-body -->
+  </div><!-- /resume-card -->
+</div><!-- /page -->
+
+</body>
+</html>
