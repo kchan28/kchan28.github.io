@@ -278,7 +278,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
       gap: 18px;
-      align-items: start;
+      align-items: stretch;
     }
     .card {
       background: var(--surface);
@@ -291,6 +291,7 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      height: 100%;
       transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
     }
     .card::before {
@@ -927,7 +928,42 @@
 
   <div class="projects-grid">
 
-    <!-- TrendIt -->
+    <!-- 이젠, 안쉼 — 2026.06 (최신) -->
+    <div class="card" onclick="openModal('anshim')" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter')openModal('anshim')">
+      <div class="card-header">
+        <span class="card-category">RAG · LLM · Backend</span>
+        <span class="card-period">2026.06.15–16</span>
+      </div>
+      <div>
+        <div class="card-title">이젠, 안쉼</div>
+        <div class="card-subtitle">청년 지원 통합 탐색 에이전트</div>
+      </div>
+      <p class="card-desc">
+        온통청년·K-Startup·고용24 3개 공공 기관 데이터를 단일 서비스로 통합한
+        LangGraph 기반 RAG 에이전트. FastAPI 서비스 레이어 설계,
+        ChromaDB + Neo4j Hybrid RAG 파이프라인 구현, 전체 시스템 아키텍처 설계를 주도했습니다.
+      </p>
+      <div class="card-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">LangGraph</span>
+        <span class="stack-tag">ChromaDB</span>
+        <span class="stack-tag">Neo4j</span>
+        <span class="stack-tag">OpenAI</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-role">팀 프로젝트 (5인) · Backend · 아키텍처 설계 주도</span>
+        <span class="card-hint">
+          자세히 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- TrendIt — 2026.04-05 -->
     <div class="card" onclick="openModal('trendit')" role="button" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('trendit')">
       <div class="card-header">
@@ -976,32 +1012,41 @@
       </div>
     </div>
 
-    <!-- 이젠, 안쉼 -->
-    <div class="card" onclick="openModal('anshim')" role="button" tabindex="0"
-         onkeydown="if(event.key==='Enter')openModal('anshim')">
+    <!-- Markov HAR Thesis — 2024.12-2025.12 -->
+    <div class="card" onclick="openModal('thesis')" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter')openModal('thesis')">
       <div class="card-header">
-        <span class="card-category">RAG · LLM · Backend</span>
-        <span class="card-period">2026.06.15–16</span>
+        <span class="card-category">Time Series · Finance</span>
+        <span class="card-period">2024.12–2025.12</span>
       </div>
       <div>
-        <div class="card-title">이젠, 안쉼</div>
-        <div class="card-subtitle">청년 지원 통합 탐색 에이전트</div>
+        <div class="card-title">Forecasting Bitcoin and Ethereum Prices: A Markov Regime-Switching HAR Framework</div>
+        <div class="card-subtitle">학부 연구 논문 · 시계열 금융 분석</div>
       </div>
       <p class="card-desc">
-        온통청년·K-Startup·고용24 3개 공공 기관 데이터를 단일 서비스로 통합한
-        LangGraph 기반 RAG 에이전트. FastAPI 서비스 레이어 설계,
-        ChromaDB + Neo4j Hybrid RAG 파이프라인 구현, 전체 시스템 아키텍처 설계를 주도했습니다.
+        Bitcoin·Ethereum 가격 공동 예측을 위한 Markov Regime-Switching HAR 모델 제안.
+        Rolling-window 시변 상관계수로 레짐을 정의하고 32개 모델 비교 실험으로 HAR(3)-M(ρ*,182)의
+        우위를 검증했습니다. 학부 연구 논문.
       </p>
+      <div class="card-metrics">
+        <div class="metric">
+          <span class="metric-value">11.0% ↓</span>
+          <span class="metric-label">BTC 예측 오차 감소 (k=10)</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">14.8% ↓</span>
+          <span class="metric-label">ETH 예측 오차 감소 (k=10)</span>
+        </div>
+      </div>
       <div class="card-stack">
-        <span class="stack-tag">Python</span>
-        <span class="stack-tag">FastAPI</span>
-        <span class="stack-tag">LangGraph</span>
-        <span class="stack-tag">ChromaDB</span>
-        <span class="stack-tag">Neo4j</span>
-        <span class="stack-tag">OpenAI</span>
+        <span class="stack-tag">R</span>
+        <span class="stack-tag">HAR Model</span>
+        <span class="stack-tag">Markov Chain</span>
+        <span class="stack-tag">Time Series</span>
+        <span class="stack-tag">Rolling Window</span>
       </div>
       <div class="card-footer">
-        <span class="card-role">팀 프로젝트 (5인) · Backend · 아키텍처 설계 주도</span>
+        <span class="card-role">단독 연구 · Introduction / Conclusion / 시각화 주도</span>
         <span class="card-hint">
           자세히 보기
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1011,14 +1056,7 @@
       </div>
     </div>
 
-    <!-- Placeholder 2 -->
-    <div class="card-placeholder">
-      <div class="placeholder-icon">+</div>
-      <span class="placeholder-text">Coming Soon</span>
-      <span class="placeholder-sub">다음 프로젝트 준비 중</span>
-    </div>
-
-    <!-- Placeholder 3 -->
+    <!-- Placeholder -->
     <div class="card-placeholder">
       <div class="placeholder-icon">+</div>
       <span class="placeholder-text">Coming Soon</span>
@@ -1184,8 +1222,8 @@
           desc: 'ChromaDB Vector 검색(의미 유사도)은 범주·관계 기반 질의에 취약. Item → Domain 관계를 Neo4j Graph DB에 저장하여 Cypher 쿼리로 보완. Vector 상위 5개 + Graph 신규 2개를 hybrid_merge_node에서 중복 제거 후 최종 7개로 병합하는 파이프라인을 직접 구현. Neo4j 연결 실패 시 Vector 파이프라인으로 자동 전환(graceful degradation)하는 방어 설계도 포함.'
         },
         {
-          title: '전체 시스템 아키텍처 설계 주도 + LangGraph 노드 검토',
-          desc: 'Frontend(Streamlit) → FastAPI → LangGraph Workflow → Data Layer 4개 레이어 구조를 직접 설계하고 주도. Input Validator → Condition Extractor → Router → Retriever → Graph Retrieve → Hybrid Merge → Sufficiency Checker → Tavily Fallback → Eligibility Checker → Answer Generator 9단계 노드 흐름을 LangGraph 담당자와 공동 검토하여 노드 간 전환 조건을 수정.'
+          title: '전체 시스템 아키텍처 설계 주도 + LangGraph 노드 흐름 검토',
+          desc: 'Frontend(Streamlit) → FastAPI → LangGraph Workflow → Data Layer 4개 레이어 구조를 직접 설계하고 주도. LangGraph 담당자와 전체 노드 흐름을 공동 검토하고 노드 간 전환 조건을 직접 수정. 각 구현 담당자의 노드 결과물을 아키텍처 관점에서 검토하며 전체 파이프라인 연결의 완성도를 책임지는 역할을 수행.'
         },
         {
           title: '평가 기획 기준 전체 점검 — 팀 기술 QA 리드',
@@ -1193,6 +1231,75 @@
         }
       ],
       stack: ['Python', 'FastAPI', 'LangGraph', 'LangChain', 'ChromaDB', 'Neo4j', 'OpenAI', 'Tavily', 'Streamlit', 'Pydantic', 'KoNLPy', 'LoRA/QLoRA']
+    }
+
+    ,
+
+    thesis: {
+      category: 'Time Series · Finance',
+      period: '2024.12 – 2025.12',
+      title: 'Forecasting Bitcoin and Ethereum Prices: A Markov Regime-Switching HAR Framework Based on Their Co-Movement',
+      subtitle: '학부 연구 논문 · 시계열 금융 분석',
+      team: '단독 연구 (학부 논문) · Introduction / Conclusion / 분석 결과 시각화 주도',
+      github: '#',
+      overview: `
+        Bitcoin과 Ethereum의 가격 공동 예측을 위한 Markov Regime-Switching HAR 모델을 제안한 학부 연구 논문입니다.
+        2016.03–2024.11 일별 가격 데이터 3,188건을 사용하여 AR / HAR 총 48개 모델을 전수 비교하고,
+        Rolling-window 시변 상관계수(ρt)를 기반으로 레짐을 직접 관측 가능하게 정의한 점이 핵심 기여입니다.
+        최종 선정 모델 HAR(3)-M(ρ*,182)은 BTC 전 구간, ETH 단·장기 구간에서 기존 AR 및 단일·이변량 HAR 모델을 능가하며
+        1~10단계 예측 MAPE 1.84%~7.74%를 달성했습니다.
+        Introduction 전체 집필, Conclusion 작성, 분석 결과 시각화(Figures 3–9) 및 요약 구성을 주도했습니다.
+      `,
+      decisions: [
+        {
+          title: '데이터 기반 Markov 레짐 정의 — Hidden 상태 대신 관측 가능한 상관계수',
+          desc: '기존 Hidden Markov Model은 레짐이 잠재 변수로 추정되어 해석이 어렵고 파라미터 추정 복잡도가 높음. 이 연구에서는 Bitcoin-Ethereum 간 Rolling-window 시변 상관계수 ρt(ℓ)를 임계값 ρ0와 비교해 레짐(0: 약상관 / 1: 강상관)을 직접 정의. 레짐이 "지난 6개월 상관관계가 0.75 미만이면 독립 모델, 이상이면 공동 모델"로 해석 가능해져 비즈니스 직관성 확보.'
+        },
+        {
+          title: 'HAR 모델 채택 — 장기 기억 특성과 비정상성을 동시에 포착',
+          desc: 'GARCH 계열 모델은 단기 기억(short memory) 한계로 암호화폐 가격의 다중 시간 스케일 패턴 포착에 취약. HAR(p) 모델은 1일·7일·15일 이동평균을 함께 사용해 일간·주간·격주간 이질적 투자 행동을 반영. 차분 또는 로그 변환 없이 원시가격에 적용하여 수준 변수(nonstationary)의 구조도 유지. Bitcoin 변동성 예측에서 HAR이 GARCH 대비 우위를 보인다는 선행 연구(Bergsli et al. 2022)로 이론적 근거 확보.'
+        },
+        {
+          title: '최적 임계값·윈도우 크기 선택 — MSE 최소화 기반 데이터 기반 최적화',
+          desc: 'ρ0 ∈ {0.5, ρBE=0.9299}와 ℓ0 ∈ {182일(6개월), 365일(1년)} 4가지 조합에서 인샘플 MSE0+MSE1을 최소화하는 파라미터 쌍을 탐색. HAR(3)의 경우 ℓ0=182일 고정 시 ρ*=0.75, ℓ0=365일 고정 시 ρ*=0.64가 선택됨 — 윈도우 크기에 따라 최적 임계값이 달라짐을 실증적으로 확인. 전 구간 상관계수(0.9299)와 구간별 시변 상관계수 간의 괴리가 레짐 구분의 핵심 근거.'
+        },
+        {
+          title: '다단계(k-step) 예측 전략 확장 — 거래 수수료 반영',
+          desc: '선행 연구(Figa-Talamanca et al. 2021)는 1단계 예측만 사용. 이 연구에서는 k=1,2,5,10단계 예측을 모두 구현하고 거래 수수료(r1=0.1%, r2=0.2%)를 비용으로 반영한 누적 수익 G_{k,m} 공식을 설계. 결론: 고변동 구간(Period I)에서 k=10이 손실 최소화, 수수료 환경에서 다단계 전략이 단기 매매보다 양의 수익 유지. 1단계 전략은 수수료가 없을 때만 우위 — 현실적인 시나리오에서 다단계 접근이 더 강건.'
+        },
+        {
+          title: '48개 모델 전수 비교 실험 설계 및 결과 해석 주도',
+          desc: 'AR(1–4) × 4 Markov 조합, HAR(2–4) × 4 Markov 조합, 단일·이변량 기준 모델까지 총 48개 조합 비교. 적합 지표(RMSE, MAE, AIC, BIC)와 예측 지표(RMSE_k, MAE_k, MAPE_k, RRSE_k, k=1,3,7,10)를 분리 평가하여 "적합이 좋다 ≠ 예측이 좋다"는 한계를 명시. HAR(3)-M(ρ*,182) 최종 선정 및 그 이유를 수치로 정당화. Introduction 집필을 통해 연구 배경·문헌 위치·기여점을 명확히 서술하고 Conclusion에서 모델 한계와 future work(다중 암호화폐 확장, 3상태 Markov 등)를 구체화.'
+        }
+      ],
+      results: {
+        summary: '<strong>BTC</strong>는 k=1~10 전 구간에서 Markov HAR이 단변량 HAR을 능가. <strong>ETH</strong>는 단기(k=1)와 장기(k=10)에서는 Markov 우위이나, 중기(k=3,7)에서는 단변량이 역전 — 레짐 정보의 예측 기여가 자산과 예측 구간에 따라 비대칭적임을 실증.',
+        comparison: {
+          label: 'BTC 10단계(k=10) MAPE 비교 · 단변량 HAR(3) vs Markov HAR(3)-M(ρ*,182)',
+          before: { label: 'HAR(3) Univariate  — 레짐 미반영', value: 7.205, pct: 72.1 },
+          after:  { label: 'HAR(3) M(ρ*,182) — Markov 레짐 반영', value: 6.430, pct: 64.3 },
+          delta: '−10.8%',
+          note: 'BTC는 k=1~10 전 구간에서 Markov HAR이 단변량을 능가. ETH는 k=1(2.363%→2.356%)·k=10(8.00%→7.74%)에서 Markov 우위이나, k=3(4.483% vs 4.526%)·k=7(6.632% vs 6.655%)에서 단변량이 소폭 역전. 레짐 공동 모델이 ETH 중기 예측에는 noise를 유발하는 구간이 존재함을 확인.'
+        },
+        metrics: [
+          {
+            value: '전구간 ↓', label: 'BTC MAPE',
+            meaning: 'BTC는 k=1(1.84%)부터 k=10(6.43%)까지 전 구간에서 Markov HAR이 단변량 HAR을 일관되게 능가.',
+            context: 'k=10 기준: Univariate 7.20% → M(ρ*,182) 6.43%, 약 10.8% 개선. 레짐 정보가 BTC 예측에는 전 구간에서 유효하게 기여.'
+          },
+          {
+            value: '비대칭', label: 'ETH MAPE',
+            meaning: 'ETH는 k=1(2.356%, Markov 우위)·k=10(7.74%, Markov 우위)이나 k=3(4.526%)·k=7(6.655%)에서 단변량(4.483%·6.632%)에 소폭 역전.',
+            context: '역전 폭은 0.02~0.04%p로 작지만 k=3·k=7에서 일관됨. ETH 중기 예측에서 공동 레짐 모델이 noise를 유발하는 구간이 존재 — 두 자산의 상관 구조가 예측 기여에 비대칭적으로 작용.'
+          },
+          {
+            value: '1.84%', label: 'MAPE (k=1, BTC)',
+            meaning: '1단계 예측 BTC MAPE 1.84% — Faghih et al.(2020) 고정확도 기준(≤10%) 충족.',
+            context: 'AR(4)-M(ρ*,365) 조합은 ETH k=7·k=10에서 MAPE 12.16%·15.58%로 붕괴. 윈도우 크기(ℓ=182 vs 365) 선택이 예측 안정성에 결정적 — AR 모델 기준으로 6개월 롤링이 1년보다 암호화폐 구조 변화 반응에서 더 안정적.'
+          }
+        ]
+      },
+      stack: ['R', 'HAR Model', 'Markov Chain', 'Rolling Window Correlation', 'Least Squares Estimation', 'Time Series Analysis', 'RMSE / MAPE / RRSE', 'Prediction Intervals', 'Long-Short Strategy']
     }
 
     /*
