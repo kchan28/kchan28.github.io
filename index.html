@@ -1053,14 +1053,14 @@
         </div>
       </div>
       <div class="card-stack">
-        <span class="stack-tag">R</span>
+        <span class="stack-tag">Python</span>
         <span class="stack-tag">HAR Model</span>
         <span class="stack-tag">Markov Chain</span>
         <span class="stack-tag">Time Series</span>
         <span class="stack-tag">Rolling Window</span>
       </div>
       <div class="card-footer">
-        <span class="card-role">공동 연구 (지도교수) · 제1저자 · Introduction / Conclusion / 시각화 주도</span>
+        <span class="card-role">공동 연구 (지도교수) · 제1저자 · 모델링 실험 구현 주도</span>
         <span class="card-hint">
           자세히 보기
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1229,7 +1229,7 @@
       decisions: [
         {
           title: '[Phase 2] Django REST Framework 앱 구조 설계 — 백엔드 전체 리딩',
-          desc: 'Phase 1 FastAPI 프로토타입을 Django REST Framework 기반으로 재설계. users·policies·community·notifications·uploads·common 앱 단위로 도메인을 분리하고 앱 간 의존성을 최소화하는 구조를 직접 설계·리딩. 팀 내 Backend Core 담당으로 전체 API 설계를 주도.'
+          desc: 'Phase 1 FastAPI 프로토타입을 Django REST Framework 기반으로 재설계. users·policies·community·notifications·uploads·common 등 도메인별 앱 단위로 분리하는 구조를 직접 설계·리딩. 팀 내 Backend Core 담당으로 전체 API 설계를 주도.'
         },
         {
           title: '[Phase 2] JWT 인증·권한 체계 설계',
@@ -1244,8 +1244,8 @@
           desc: 'AWS RDS PostgreSQL로 서비스 DB를 직접 구축. 배포 서버(EC2) 자체를 띄우는 작업은 팀 내 인프라 담당자가 진행했으나, 해당 EC2 서버에 접속해 Docker 컨테이너 환경에서 Django 백엔드와 React 프론트엔드를 연동·검증하는 작업을 직접 수행.'
         },
         {
-          title: '[Phase 2] 기능·배포 검증 — 테스트 케이스 37건 전체 Pass',
-          desc: '인증/권한, 정책 검색, 커뮤니티, AI 챗봇 응답 구조, 배포 인프라 등 전체 테스트 케이스 37건에 대해 로컬/기능 단위 검증을 진행해 전건 Pass를 확인. (캠프 종료 후 배포 서버는 현재 종료된 상태)'
+          title: '[Phase 2] 기능 테스트 수행 — 전체 테스트 케이스 37건 전건 Pass',
+          desc: '인증/권한, 정책 검색, 커뮤니티 등 백엔드 담당 영역의 기능 테스트를 직접 수행. 팀 전체 테스트 케이스 37건이 로컬/기능 단위 검증에서 전건 Pass를 기록 (테스트 계획·결과 보고서 작성은 팀 QA 담당 협업). 캠프 종료 후 배포 서버는 현재 종료된 상태.'
         },
         {
           title: '[Phase 1] FastAPI 서비스 레이어 설계 — 데이터 흐름의 계약 정의',
@@ -1270,7 +1270,7 @@
       period: '2024.12 – 2025.12',
       title: 'Forecasting Bitcoin and Ethereum Prices: A Markov Regime-Switching HAR Framework Based on Their Co-Movement',
       subtitle: '학부 연구 논문 · 시계열 금융 분석',
-      team: '공동 연구 (지도교수) · 제1저자 · Introduction / Conclusion / 분석 결과 시각화 주도',
+      team: '공동 연구 (지도교수) · 제1저자 · 모델링 실험 구현 주도',
       github: '#',
       overview: `
         Bitcoin과 Ethereum의 가격 공동 예측을 위한 Markov Regime-Switching HAR 모델을 제안한 학부 연구 논문입니다.
@@ -1278,28 +1278,31 @@
         Rolling-window 시변 상관계수(ρt)를 기반으로 레짐을 직접 관측 가능하게 정의한 점이 핵심 기여입니다.
         최종 선정 모델 HAR(3)-M(ρ*,182)은 BTC 전 구간, ETH 단·장기 구간에서 기존 AR 및 단일·이변량 HAR 모델을 능가하며
         1~10단계 예측 MAPE 1.84%~7.74%를 달성했습니다.
-        Introduction 전체 집필, Conclusion 작성, 분석 결과 시각화(Figures 3–9) 및 요약 구성을 주도했습니다.
+        Introduction 전체 집필, Conclusion 작성을 맡았고, 48개 모델 비교 실험 코드를 직접 구현·실행하고
+        결과를 해석·정리했습니다. 분석 결과 시각화(Figures 3–9) 및 요약 구성도 주도했습니다.
+        레짐 정의·HAR 채택·임계값 선택 등 핵심 방법론은 지도교수와 공동 설계했으며,
+        다단계(k-step) 예측 전략 확장은 아이디어를 제안해 반영했습니다.
       `,
       decisions: [
         {
-          title: '데이터 기반 Markov 레짐 정의 — Hidden 상태 대신 관측 가능한 상관계수',
+          title: '[공동 설계] 데이터 기반 Markov 레짐 정의 — Hidden 상태 대신 관측 가능한 상관계수',
           desc: '기존 Hidden Markov Model은 레짐이 잠재 변수로 추정되어 해석이 어렵고 파라미터 추정 복잡도가 높음. 이 연구에서는 Bitcoin-Ethereum 간 Rolling-window 시변 상관계수 ρt(ℓ)를 임계값 ρ0와 비교해 레짐(0: 약상관 / 1: 강상관)을 직접 정의. 레짐이 "지난 6개월 상관관계가 0.75 미만이면 독립 모델, 이상이면 공동 모델"로 해석 가능해져 비즈니스 직관성 확보.'
         },
         {
-          title: 'HAR 모델 채택 — 장기 기억 특성과 비정상성을 동시에 포착',
+          title: '[공동 설계] HAR 모델 채택 — 장기 기억 특성과 비정상성을 동시에 포착',
           desc: 'GARCH 계열 모델은 단기 기억(short memory) 한계로 암호화폐 가격의 다중 시간 스케일 패턴 포착에 취약. HAR(p) 모델은 1일·7일·15일 이동평균을 함께 사용해 일간·주간·격주간 이질적 투자 행동을 반영. 차분 또는 로그 변환 없이 원시가격에 적용하여 수준 변수(nonstationary)의 구조도 유지. Bitcoin 변동성 예측에서 HAR이 GARCH 대비 우위를 보인다는 선행 연구(Bergsli et al. 2022)로 이론적 근거 확보.'
         },
         {
-          title: '최적 임계값·윈도우 크기 선택 — MSE 최소화 기반 데이터 기반 최적화',
+          title: '[공동 설계] 최적 임계값·윈도우 크기 선택 — MSE 최소화 기반 데이터 기반 최적화',
           desc: 'ρ0 ∈ {0.5, ρBE=0.9299}와 ℓ0 ∈ {182일(6개월), 365일(1년)} 4가지 조합에서 인샘플 MSE0+MSE1을 최소화하는 파라미터 쌍을 탐색. HAR(3)의 경우 ℓ0=182일 고정 시 ρ*=0.75, ℓ0=365일 고정 시 ρ*=0.64가 선택됨 — 윈도우 크기에 따라 최적 임계값이 달라짐을 실증적으로 확인. 전 구간 상관계수(0.9299)와 구간별 시변 상관계수 간의 괴리가 레짐 구분의 핵심 근거.'
         },
         {
-          title: '다단계(k-step) 예측 전략 확장 — 거래 수수료 반영',
-          desc: '선행 연구(Figa-Talamanca et al. 2021)는 1단계 예측만 사용. 이 연구에서는 k=1,2,5,10단계 예측을 모두 구현하고 거래 수수료(r1=0.1%, r2=0.2%)를 비용으로 반영한 누적 수익 G_{k,m} 공식을 설계. 결론: 고변동 구간(Period I)에서 k=10이 손실 최소화, 수수료 환경에서 다단계 전략이 단기 매매보다 양의 수익 유지. 1단계 전략은 수수료가 없을 때만 우위 — 현실적인 시나리오에서 다단계 접근이 더 강건.'
+          title: '[단독 제안] 다단계(k-step) 예측 전략 확장 — 거래 수수료 반영',
+          desc: '선행 연구(Figa-Talamanca et al. 2021)는 1단계 예측만 사용. k=1,2,5,10단계로 확장하는 아이디어를 제안해 지도교수와 논의·수정을 거쳐 반영. 거래 수수료(r1=0.1%, r2=0.2%)를 비용으로 반영한 누적 수익 G_{k,m} 공식(지도교수 설계) 기반으로 전략을 평가. 결론: 고변동 구간(Period I)에서 k=10이 손실 최소화, 수수료 환경에서 다단계 전략이 단기 매매보다 양의 수익 유지. 1단계 전략은 수수료가 없을 때만 우위 — 현실적인 시나리오에서 다단계 접근이 더 강건.'
         },
         {
-          title: '48개 모델 전수 비교 실험 설계 및 결과 해석 주도',
-          desc: 'AR(1–4) × 4 Markov 조합, HAR(2–4) × 4 Markov 조합, 단일·이변량 기준 모델까지 총 48개 조합 비교. 적합 지표(RMSE, MAE, AIC, BIC)와 예측 지표(RMSE_k, MAE_k, MAPE_k, RRSE_k, k=1,3,7,10)를 분리 평가하여 "적합이 좋다 ≠ 예측이 좋다"는 한계를 명시. HAR(3)-M(ρ*,182) 최종 선정 및 그 이유를 수치로 정당화. Introduction 집필을 통해 연구 배경·문헌 위치·기여점을 명확히 서술하고 Conclusion에서 모델 한계와 future work(다중 암호화폐 확장, 3상태 Markov 등)를 구체화.'
+          title: '[직접 구현] 48개 모델 전수 비교 실험 코드 구현·실행 및 결과 해석',
+          desc: 'AR(1–4) × 4 Markov 조합, HAR(2–4) × 4 Markov 조합, 단일·이변량 기준 모델까지 총 48개 조합의 비교 실험 코드를 직접 구현·실행. 적합 지표(RMSE, MAE, AIC, BIC)와 예측 지표(RMSE_k, MAE_k, MAPE_k, RRSE_k, k=1,3,7,10)를 분리 평가하여 "적합이 좋다 ≠ 예측이 좋다"는 한계를 직접 해석·정리. HAR(3)-M(ρ*,182) 최종 선정 근거를 수치로 정당화. Introduction 집필을 통해 연구 배경·문헌 위치·기여점을 명확히 서술하고 Conclusion에서 모델 한계와 future work(다중 암호화폐 확장, 다중 임계값 기반 상태 세분화, 외생 변수 결합 등)를 구체화.'
         }
       ],
       results: {
@@ -1324,12 +1327,12 @@
           },
           {
             value: '1.84%', label: 'MAPE (k=1, BTC)',
-            meaning: '1단계 예측 BTC MAPE 1.84% — Faghih et al.(2020) 고정확도 기준(≤10%) 충족.',
+            meaning: '1단계 예측 BTC MAPE 1.84% — Faghih et al.(2020)의 고정확도(High Accuracy) 기준(MAPE ≤10%) 충족.',
             context: 'AR(4)-M(ρ*,365) 조합은 ETH k=7·k=10에서 MAPE 12.16%·15.58%로 붕괴. 윈도우 크기(ℓ=182 vs 365) 선택이 예측 안정성에 결정적 — AR 모델 기준으로 6개월 롤링이 1년보다 암호화폐 구조 변화 반응에서 더 안정적.'
           }
         ]
       },
-      stack: ['R', 'HAR Model', 'Markov Chain', 'Rolling Window Correlation', 'Least Squares Estimation', 'Time Series Analysis', 'RMSE / MAPE / RRSE', 'Prediction Intervals', 'Long-Short Strategy']
+      stack: ['Python', 'HAR Model', 'Markov Chain', 'Rolling Window Correlation', 'Least Squares Estimation', 'Time Series Analysis', 'RMSE / MAPE / RRSE', 'Prediction Intervals', 'Long-Short Strategy']
     }
 
     /*
