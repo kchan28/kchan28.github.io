@@ -288,10 +288,10 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      height: 100%;
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      height: 100%;
       transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
     }
     .card::before {
@@ -417,6 +417,7 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
+      height: 100%;
       min-height: 200px;
       cursor: default;
     }
@@ -877,6 +878,10 @@
         <strong>EDA 인사이트가 피처 설계로 이어지는 과정</strong>을 중시합니다.
         팀 프로젝트에서도 분석 기획 전 단계를 이끄는 PM형 역할을 자주 맡습니다.
       </p>
+      <p>
+        분석 설계 역량에 더해, <strong>백엔드 서비스 레이어 설계부터 인증·DB 구축,
+        배포 환경 연동까지</strong> 아우르는 엔지니어링 실행력도 갖추고 있습니다.
+      </p>
     </div>
     <div class="about-skills">
       <div class="skill-row">
@@ -896,6 +901,7 @@
           <span class="tag">NumPy</span>
           <span class="tag">SQL</span>
           <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
           <span class="tag">Parquet</span>
         </div>
       </div>
@@ -911,8 +917,14 @@
         <span class="skill-label">Engineering</span>
         <div class="skill-tags">
           <span class="tag">FastAPI</span>
+          <span class="tag">Django</span>
+          <span class="tag">Streamlit</span>
           <span class="tag">React</span>
           <span class="tag">Git</span>
+          <span class="tag">LangGraph</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">Docker</span>
+          <span class="tag">AWS</span>
         </div>
       </div>
     </div>
@@ -928,32 +940,34 @@
 
   <div class="projects-grid">
 
-    <!-- 이젠, 안쉼 — 2026.06 (최신) -->
+    <!-- 이젠, 안쉼 — 2026.06–07 (최신, Phase 1→Phase 2 진화) -->
     <div class="card" onclick="openModal('anshim')" role="button" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('anshim')">
       <div class="card-header">
         <span class="card-category">RAG · LLM · Backend</span>
-        <span class="card-period">2026.06.15–16</span>
+        <span class="card-period">2026.06–07</span>
       </div>
       <div>
         <div class="card-title">이젠, 안쉼</div>
-        <div class="card-subtitle">청년 지원 통합 탐색 에이전트</div>
+        <div class="card-subtitle">청년 지원 통합 탐색 에이전트 · FastAPI → Django 리뉴얼·배포</div>
       </div>
       <p class="card-desc">
-        온통청년·K-Startup·고용24 3개 공공 기관 데이터를 단일 서비스로 통합한
-        LangGraph 기반 RAG 에이전트. FastAPI 서비스 레이어 설계,
-        ChromaDB + Neo4j Hybrid RAG 파이프라인 구현, 전체 시스템 아키텍처 설계를 주도했습니다.
+        온통청년·K-Startup·고용24 공공 데이터를 통합한 LangGraph 기반 RAG 에이전트.
+        Phase 1(프로토타입)에서 FastAPI 서비스 레이어 설계에 참여했고, Phase 2(리뉴얼·배포)에서는
+        Django REST Framework로 백엔드 전체를 리빌드하며 인증·정책·커뮤니티·알림 등
+        전 도메인 앱 구조 설계와 리딩을 맡았습니다. PostgreSQL DB를 직접 구축하고
+        EC2·Docker 환경에서 백엔드·프론트 연동까지 진행했습니다.
       </p>
       <div class="card-stack">
         <span class="stack-tag">Python</span>
-        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">Django REST Framework</span>
+        <span class="stack-tag">PostgreSQL</span>
         <span class="stack-tag">LangGraph</span>
-        <span class="stack-tag">ChromaDB</span>
         <span class="stack-tag">Neo4j</span>
-        <span class="stack-tag">OpenAI</span>
+        <span class="stack-tag">Docker</span>
       </div>
       <div class="card-footer">
-        <span class="card-role">팀 프로젝트 (5인) · Backend · 아키텍처 설계 주도</span>
+        <span class="card-role">팀 프로젝트 (5인) · Backend Core Lead (Phase 2)</span>
         <span class="card-hint">
           자세히 보기
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1025,17 +1039,17 @@
       </div>
       <p class="card-desc">
         Bitcoin·Ethereum 가격 공동 예측을 위한 Markov Regime-Switching HAR 모델 제안.
-        Rolling-window 시변 상관계수로 레짐을 정의하고 32개 모델 비교 실험으로 HAR(3)-M(ρ*,182)의
-        우위를 검증했습니다. 학부 연구 논문.
+        Rolling-window 시변 상관계수로 레짐을 정의하고 48개 모델 비교 실험으로 HAR(3)-M(ρ*,182)의
+        우위를 검증했습니다.
       </p>
       <div class="card-metrics">
         <div class="metric">
-          <span class="metric-value">11.0% ↓</span>
-          <span class="metric-label">BTC 예측 오차 감소 (k=10)</span>
+          <span class="metric-value">−11.0%</span>
+          <span class="metric-label">BTC RRSE 개선 (k=10)</span>
         </div>
         <div class="metric">
-          <span class="metric-value">14.8% ↓</span>
-          <span class="metric-label">ETH 예측 오차 감소 (k=10)</span>
+          <span class="metric-value">−14.8%</span>
+          <span class="metric-label">ETH RRSE 개선 (k=10)</span>
         </div>
       </div>
       <div class="card-stack">
@@ -1046,7 +1060,7 @@
         <span class="stack-tag">Rolling Window</span>
       </div>
       <div class="card-footer">
-        <span class="card-role">단독 연구 · Introduction / Conclusion / 시각화 주도</span>
+        <span class="card-role">공동 연구 (지도교수) · 제1저자 · Introduction / Conclusion / 시각화 주도</span>
         <span class="card-hint">
           자세히 보기
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1101,13 +1115,13 @@
 <!-- ══════════ FOOTER ══════════ -->
 <footer id="contact">
   <div class="footer-inner">
-    <div class="footer-left">© 2026 홍길동 · Data Analyst <!-- TODO: 이름 교체 --></div>
+    <div class="footer-left">© 2026 한경찬 · Data Analyst</div>
     <div class="footer-links">
-      <a href="https://github.com/YOUR_USERNAME" target="_blank">
+      <a href="https://github.com/kchan28" target="_blank">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
         GitHub
       </a>
-      <a href="mailto:your@email.com">
+      <a href="mailto:hkc3511@naver.com">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
       </a>
@@ -1196,41 +1210,57 @@
 
     anshim: {
       category: 'RAG · LLM · Backend',
-      period: '2026.06.15 – 06.16',
+      period: '2026.06.15–16 (Phase 1) · 2026.07.08–09 (Phase 2)',
       title: '이젠, 안쉼',
-      subtitle: '청년 지원 통합 탐색 에이전트',
-      team: '팀 프로젝트 (5인) · Backend · 아키텍처 설계 주도',
-      github: 'https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN29-3RD-5Team',
+      subtitle: '청년 지원 통합 탐색 에이전트 → Django 리뉴얼·실배포',
+      team: '팀 프로젝트 (5인) · Backend Core Lead (Phase 2) · Backend 설계 참여 (Phase 1)',
+      github: 'https://github.com/idenist/SKN29-4th-5TEAM',
       overview: `
-        온통청년(정책), K-Startup(창업), 고용24(교육훈련) 등 분산된 청년 지원 정보를
-        26,803건 단일 데이터로 통합하고, LangGraph 기반 9단계 멀티 에이전트 워크플로우로
-        자연어 조건 추출부터 맞춤형 큐레이션까지 처리하는 RAG 서비스입니다.
-        FastAPI 서비스 레이어 설계, Hybrid RAG 파이프라인 구현,
-        전체 시스템 아키텍처 설계를 주도하고 팀 기술 QA 리드를 담당했습니다.
+        온통청년(정책), K-Startup(창업), 고용24(교육훈련) 등 분산된 청년 지원 정보를 통합해
+        AI 챗봇으로 맞춤 정책을 추천하는 서비스입니다. Phase 1(프로토타입, 2026.06)에서는
+        FastAPI + LangGraph 기반 RAG 프로토타입으로 시작해 서비스 레이어 설계와
+        Neo4j Hybrid RAG 구현 등 백엔드 설계 일부를 담당했고, Phase 2(리뉴얼·배포, 2026.07)에서는
+        Django REST Framework 기반으로 백엔드 전체를 리빌드하며 인증·정책·커뮤니티·알림·업로드 등
+        전 도메인 앱 구조 설계와 리딩을 맡았습니다. AWS RDS PostgreSQL로 서비스 DB를 직접 구축했고,
+        EC2 서버에 접속해 Docker 환경에서 백엔드와 프론트엔드를 연동·검증하는 작업까지 수행했습니다
+        (서버 자체를 띄우는 인프라 구축은 팀 내 담당자가 진행). AI 챗봇(RAG) 파이프라인 이식은
+        팀 내 AI Backend 담당자가 진행했습니다.
       `,
       decisions: [
         {
-          title: 'FastAPI 서비스 레이어 설계 — 데이터 흐름의 계약 정의',
-          desc: 'Streamlit ↔ FastAPI 간 API 계약(request/response 구조)을 직접 정의하고, Pydantic 기반 DTO 스키마로 입구에서 데이터 타입을 검증. 26,803건 처리 환경에서 잘못된 요청이 서비스 전체를 깨뜨리지 않도록 방어 설계. item_id 기준 O(1) 상세 조회 구조로 대용량 데이터 응답 속도를 확보.'
+          title: '[Phase 2] Django REST Framework 앱 구조 설계 — 백엔드 전체 리딩',
+          desc: 'Phase 1 FastAPI 프로토타입을 Django REST Framework 기반으로 재설계. users·policies·community·notifications·uploads·common 앱 단위로 도메인을 분리하고 앱 간 의존성을 최소화하는 구조를 직접 설계·리딩. 팀 내 Backend Core 담당으로 전체 API 설계를 주도.'
         },
         {
-          title: 'FastAPI ↔ LangGraph 연동 — LLM 파이프라인 진입점 설계',
-          desc: 'POST /api/chat 엔드포인트를 설계하여 LangGraph의 run_rag_chat()을 서비스로 노출. LangGraph가 구성한 9단계 에이전트 파이프라인은 이 API 레이어 없이는 외부에서 호출 불가 — FastAPI 엔드포인트가 LLM 전체 파이프라인의 유일한 진입점. 미들웨어·예외 핸들러·lifespan 관리까지 포함한 백엔드 서버 구조 전체를 설계.'
+          title: '[Phase 2] JWT 인증·권한 체계 설계',
+          desc: 'Simple JWT 기반 인증에 refresh token rotation을 적용하고, 만료·손상된 JWT가 있어도 로그인 등 AllowAny 엔드포인트가 막히지 않도록 Optional JWT 인증 처리를 직접 설계. 로그인 실패 누적 시 비밀번호 재설정 유도 등 인증 실패가 전체 API 접근을 막지 않도록 방어 설계.'
         },
         {
-          title: 'Neo4j Hybrid RAG 구현 — Vector 한계를 Graph로 보완',
+          title: '[Phase 2] Django Admin + 외부 서비스 연동',
+          desc: '프로필 이미지 업로드(S3), 이메일 인증(Gmail SMTP) 등 외부 서비스 연동을 백엔드 레이어에 통합하고, 운영 관리를 위한 Django Admin 구성을 담당.'
+        },
+        {
+          title: '[Phase 2] PostgreSQL DB 구축 및 EC2 배포 서버 백엔드·프론트 연동',
+          desc: 'AWS RDS PostgreSQL로 서비스 DB를 직접 구축. 배포 서버(EC2) 자체를 띄우는 작업은 팀 내 인프라 담당자가 진행했으나, 해당 EC2 서버에 접속해 Docker 컨테이너 환경에서 Django 백엔드와 React 프론트엔드를 연동·검증하는 작업을 직접 수행.'
+        },
+        {
+          title: '[Phase 2] 기능·배포 검증 — 테스트 케이스 37건 전체 Pass',
+          desc: '인증/권한, 정책 검색, 커뮤니티, AI 챗봇 응답 구조, 배포 인프라 등 전체 테스트 케이스 37건에 대해 로컬/기능 단위 검증을 진행해 전건 Pass를 확인. (캠프 종료 후 배포 서버는 현재 종료된 상태)'
+        },
+        {
+          title: '[Phase 1] FastAPI 서비스 레이어 설계 — 데이터 흐름의 계약 정의',
+          desc: 'Streamlit ↔ FastAPI 간 API 계약(request/response 구조)을 직접 정의하고, Pydantic 기반 DTO 스키마로 입구에서 데이터 타입을 검증. 26,803건 처리 환경에서 잘못된 요청이 서비스 전체를 깨뜨리지 않도록 방어 설계.'
+        },
+        {
+          title: '[Phase 1] Neo4j Hybrid RAG 구현 — Vector 한계를 Graph로 보완',
           desc: 'ChromaDB Vector 검색(의미 유사도)은 범주·관계 기반 질의에 취약. Item → Domain 관계를 Neo4j Graph DB에 저장하여 Cypher 쿼리로 보완. Vector 상위 5개 + Graph 신규 2개를 hybrid_merge_node에서 중복 제거 후 최종 7개로 병합하는 파이프라인을 직접 구현. Neo4j 연결 실패 시 Vector 파이프라인으로 자동 전환(graceful degradation)하는 방어 설계도 포함.'
         },
         {
-          title: '전체 시스템 아키텍처 설계 주도 + LangGraph 노드 흐름 검토',
-          desc: 'Frontend(Streamlit) → FastAPI → LangGraph Workflow → Data Layer 4개 레이어 구조를 직접 설계하고 주도. LangGraph 담당자와 전체 노드 흐름을 공동 검토하고 노드 간 전환 조건을 직접 수정. 각 구현 담당자의 노드 결과물을 아키텍처 관점에서 검토하며 전체 파이프라인 연결의 완성도를 책임지는 역할을 수행.'
-        },
-        {
-          title: '평가 기획 기준 전체 점검 — 팀 기술 QA 리드',
-          desc: '20여 개 평가 항목을 기준으로 팀 전체 구현물의 누락·오류를 디테일하게 점검하고 결과를 전원에게 공유·반영. 예외 처리 누락(Input Validator, Neo4j fallback, Tavily fallback), 평가 항목 미충족(중복 제거, 결측치, Ground Truth 검증) 등을 직접 탐지하여 수정 요청. PM 없는 환경에서 시스템 전체의 완성도를 책임지는 포지션을 수행.'
+          title: '[Phase 1] 평가 기획 기준 전체 점검 — 팀 기술 QA 리드',
+          desc: '20여 개 평가 항목을 기준으로 팀 전체 구현물의 누락·오류를 디테일하게 점검하고 결과를 전원에게 공유·반영. 예외 처리 누락, 평가 항목 미충족 등을 직접 탐지하여 수정 요청.'
         }
       ],
-      stack: ['Python', 'FastAPI', 'LangGraph', 'LangChain', 'ChromaDB', 'Neo4j', 'OpenAI', 'Tavily', 'Streamlit', 'Pydantic', 'KoNLPy', 'LoRA/QLoRA']
+      stack: ['Python', 'Django', 'Django REST Framework', 'Simple JWT', 'FastAPI', 'Streamlit', 'LangGraph', 'ChromaDB', 'Neo4j', 'OpenAI', 'PostgreSQL', 'AWS', 'Docker', 'Nginx']
     }
 
     ,
@@ -1240,7 +1270,7 @@
       period: '2024.12 – 2025.12',
       title: 'Forecasting Bitcoin and Ethereum Prices: A Markov Regime-Switching HAR Framework Based on Their Co-Movement',
       subtitle: '학부 연구 논문 · 시계열 금융 분석',
-      team: '단독 연구 (학부 논문) · Introduction / Conclusion / 분석 결과 시각화 주도',
+      team: '공동 연구 (지도교수) · 제1저자 · Introduction / Conclusion / 분석 결과 시각화 주도',
       github: '#',
       overview: `
         Bitcoin과 Ethereum의 가격 공동 예측을 위한 Markov Regime-Switching HAR 모델을 제안한 학부 연구 논문입니다.
