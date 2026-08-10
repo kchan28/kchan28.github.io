@@ -939,8 +939,6 @@
   <h2 class="section-title">프로젝트</h2>
 
   <div class="projects-grid">
-    
-    ──────── [블록 1] 카드 HTML ────────
 
     <!-- Tiger.inc — 2026.07~09 (진행 중) -->
     <div class="card" onclick="openModal('tigerinc')" role="button" tabindex="0"
@@ -991,7 +989,7 @@
         </span>
       </div>
     </div>
-    
+
     <!-- 이젠, 안쉼 — 2026.06–07 (최신, Phase 1→Phase 2 진화) -->
     <div class="card" onclick="openModal('anshim')" role="button" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('anshim')">
@@ -1129,38 +1127,6 @@
       <span class="placeholder-sub">다음 프로젝트 준비 중</span>
     </div>
 
-    <!--
-      ╔══════════════════════════════════════╗
-      ║  새 카드 추가 시 아래 블록을 복사하세요  ║
-      ╚══════════════════════════════════════╝
-
-    <div class="card" onclick="openModal('project_id')" role="button" tabindex="0"
-         onkeydown="if(event.key==='Enter')openModal('project_id')">
-      <div class="card-header">
-        <span class="card-category">카테고리</span>
-        <span class="card-period">2026.MM–MM</span>
-      </div>
-      <div>
-        <div class="card-title">프로젝트 이름</div>
-        <div class="card-subtitle">한 줄 부제목</div>
-      </div>
-      <p class="card-desc">설명 2–3문장.</p>
-      <div class="card-metrics">
-        <div class="metric">
-          <span class="metric-value">0.00</span>
-          <span class="metric-label">지표명</span>
-        </div>
-      </div>
-      <div class="card-stack">
-        <span class="stack-tag">Python</span>
-      </div>
-      <div class="card-footer">
-        <span class="card-role">역할</span>
-        <span class="card-hint">자세히 보기 →</span>
-      </div>
-    </div>
-    -->
-
   </div>
 </section>
 
@@ -1199,7 +1165,6 @@
 <script>
   /* ─── Project data ─── */
   const projects = {
-    ──────── [블록 2] projects 객체 엔트리 ────────
 
     tigerinc: {
       category: 'AI Agent · Rule Engine',
@@ -1242,7 +1207,7 @@
       ],
       stack: ['Python', 'Django 5 + DRF', 'FastAPI', 'FastMCP', 'React/Vite', 'PostgreSQL', 'ChromaDB', 'OpenAI (LLM + Vision)', 'scikit-learn', 'Docker Compose', 'pdfplumber / camelot']
     },
-    
+
     trendit: {
       category: 'ML · Analytics',
       period: '2026.04 – 05',
@@ -1431,26 +1396,6 @@
       stack: ['Python', 'HAR Model', 'Markov Chain', 'Rolling Window Correlation', 'Least Squares Estimation', 'Time Series Analysis', 'RMSE / MAPE / RRSE', 'Prediction Intervals', 'Long-Short Strategy']
     }
 
-    /*
-      새 프로젝트 추가 방법:
-      ,
-      your_project_id: {
-        category: '카테고리',
-        period: '2026.MM – MM',
-        title: '프로젝트 이름',
-        subtitle: '부제목',
-        team: '팀/개인 · 역할',
-        github: 'https://github.com/...',
-        overview: '...',
-        decisions: [
-          { title: '설계 판단 제목', desc: '설명' }
-        ],
-        metrics: [
-          { value: '0.00', label: '지표명' }
-        ],
-        stack: ['Python', ...]
-      }
-    */
   };
 
   /* ─── Modal logic ─── */
