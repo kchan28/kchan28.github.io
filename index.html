@@ -939,7 +939,59 @@
   <h2 class="section-title">프로젝트</h2>
 
   <div class="projects-grid">
+    
+    ──────── [블록 1] 카드 HTML ────────
 
+    <!-- Tiger.inc — 2026.07~09 (진행 중) -->
+    <div class="card" onclick="openModal('tigerinc')" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter')openModal('tigerinc')">
+      <div class="card-header">
+        <span class="card-category">AI Agent · Rule Engine</span>
+        <span class="card-period">2026.07–09 · 진행 중</span>
+      </div>
+      <div>
+        <div class="card-title">Tiger.inc</div>
+        <div class="card-subtitle">Hybrid AI 법인카드 경비 정산 자동화 플랫폼</div>
+      </div>
+      <p class="card-desc">
+        "Rule First, AI Assisted" — 결정론적 Rule Engine이 판정의 1차 주체이고
+        LLM은 규칙 생성과 모호 케이스 보조에만 개입하는 정산 자동화 플랫폼.
+        3-Agent 구조 설계, 재현성 중심 룰엔진 파이프라인, RAG 파이프라인 설계를 담당하고 있습니다.
+      </p>
+      <div class="card-metrics">
+        <div class="metric">
+          <span class="metric-value">58개</span>
+          <span class="metric-label">규정 → 실행 룰 명세</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">3</span>
+          <span class="metric-label">Agent 구조 설계</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">12종</span>
+          <span class="metric-label">정산 상태 머신</span>
+        </div>
+      </div>
+      <div class="card-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Django</span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">FastMCP</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">ChromaDB</span>
+        <span class="stack-tag">scikit-learn</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-role">팀 프로젝트 (5인) · AI Agent 설계 · Rule Engine</span>
+        <span class="card-hint">
+          자세히 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+    
     <!-- 이젠, 안쉼 — 2026.06–07 (최신, Phase 1→Phase 2 진화) -->
     <div class="card" onclick="openModal('anshim')" role="button" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('anshim')">
@@ -1147,6 +1199,50 @@
 <script>
   /* ─── Project data ─── */
   const projects = {
+    ──────── [블록 2] projects 객체 엔트리 ────────
+
+    tigerinc: {
+      category: 'AI Agent · Rule Engine',
+      period: '2026.07 – 09 (진행 중)',
+      title: 'Tiger.inc',
+      subtitle: 'Hybrid AI 법인카드 경비 정산 자동화 플랫폼',
+      team: '팀 프로젝트 (5인) · AI Agent 설계 · Rule Engine (ML 공동 분담)',
+      github: 'https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN29-FINAL-1TEAM',
+      overview: `
+        가상의 IT기업(임직원 1,050명 규모)을 대상으로 설계한 법인카드 경비 정산 자동화 플랫폼입니다.
+        핵심 철학은 "Rule First, AI Assisted" — 결정론적 Rule Engine이 정산 판정의 1차 주체이고,
+        LLM은 규칙 초안 생성과 모호 케이스 보조 검토에만 개입하며, 최종 확정권은 항상 사람에게 있습니다.
+        Draft / Rule / Risk Review 3-Agent 구조 설계, 재현성 중심 룰엔진 파이프라인,
+        규정 문서 기반 RAG 파이프라인 설계를 담당하고 있으며,
+        12종 상태 enum 기반 정산 상태 머신과 Capability 기반 RBAC 등 워크플로우 설계에도 참여했습니다.
+        ※ 진행 중 프로젝트(~2026.09)로, 비전 모델 영수증 판독 연동·룰 시뮬레이션 엔드투엔드 연결·
+        RAG 임베딩 적재는 현재 구현 진행 단계입니다.
+      `,
+      decisions: [
+        {
+          title: '재현성을 아키텍처로 강제 — 룰엔진 3단 파이프라인',
+          desc: 'EvalContext 조립(I/O 허용) → 그래프 선택 → 결정론적 순회(순수함수, I/O 0)의 3단 분리. 모든 데이터 접근을 조립 단계에 격리하여 "엔진은 Postgres를 모른다"를 원칙화. rule_hits에 순회 경로 + 판정 시점 EvalContext 스냅샷 + 그래프 버전을 저장해, 같은 (스냅샷, 버전) 입력은 항상 같은 판정을 재현 — 감사·디버깅·시뮬레이션이 동일 코드 경로를 공유.'
+        },
+        {
+          title: '화이트리스트 조건 DSL — LLM 생성 룰의 안전 경계 설계',
+          desc: 'LLM이 생성하는 룰이 임의 코드 실행이 되지 않도록 JSON-Logic류 화이트리스트 연산자(and/or/not·비교·in·var)만 허용. 파생 계산(직책 한도 min 연산, 영업일 경과, 심야 판정 등)은 조립기가 미리 산출하고 DSL은 단순 비교만 수행 — 표현력과 안전성의 경계를 도메인 구조로 제한.'
+        },
+        {
+          title: '규정 문서 → 실행 룰 58개 명세 + RAG/Rule 역할 경계 판단',
+          desc: '사내 규정 4종에서 활성 룰 58개(공통 14·업무추진비 14·회식 16·출장 14)를 필드 정의·심각도·우선순위 포함해 명세화. 명시적 인용이 없는 "묵시적 특별규정"(예: 청탁금지법 대상자 경조사비 한도)은 RAG 검색으로 잡히지 않음을 실제 규정 데이터로 확인하고, 결정론적 룰로 이관하는 판단 기준을 수립 — RAG와 Rule의 역할 경계를 데이터로 검증.'
+        },
+        {
+          title: 'RAG 청킹 설계 — 조(條) 단위 그레인 + 크로스레퍼런스 보존',
+          desc: '4개 규정 문서 61개 조문을 전수 실측(글자수·항 개수·표 포함 여부)한 뒤, 인용 요건(출처 조항 반환)과 규칙 생성 맥락 보존을 절충한 조 단위 기본 그레인 + 항 인라인 마킹으로 결정. 문서 내부/문서 간 참조를 정규식으로 추출해 메타데이터에 반영 — 의도적으로 분리된 파라미터(회식 22시 야간판정 ≠ 출장 18시 야간식대)의 유실을 방지.'
+        },
+        {
+          title: '비지도 이상탐지 접근 설계 (ML 공동 분담)',
+          desc: '레이블 없는 내부 정책 위반 탐지 문제로 정의(외부 FDS와 구분)하고 비지도 접근을 채택. Isolation Forest 등 10종 이상 비교와 페어드 t-test(IF vs COPOD, p=0.0079) 기반 모델 선정, StratifiedGroupKFold(카드 단위 그룹핑) + 시간 기반 test 분할의 이중 검증 설계에 공동 참여. 서빙 연동은 진행 중.'
+        }
+      ],
+      stack: ['Python', 'Django 5 + DRF', 'FastAPI', 'FastMCP', 'React/Vite', 'PostgreSQL', 'ChromaDB', 'OpenAI (LLM + Vision)', 'scikit-learn', 'Docker Compose', 'pdfplumber / camelot']
+    },
+    
     trendit: {
       category: 'ML · Analytics',
       period: '2026.04 – 05',
