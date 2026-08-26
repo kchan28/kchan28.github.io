@@ -7,17 +7,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 
   <style>
     /* ════════════════════════════
        Tokens
     ════════════════════════════ */
     :root {
-      --bg:            #F3F8F5;
+      --bg:            #F7F8F7;
       --surface:       #FFFFFF;
-      --surface-2:     #EAF3EE;
-      --border:        #C4DAD0;
-      --border-light:  #DCF0E6;
+      --surface-2:     #F1F3F2;
+      --border:        #DCE1DE;
+      --border-light:  #E9ECEA;
 
       --accent:        #3A876A;
       --accent-mid:    #53A083;
@@ -25,12 +26,21 @@
       --accent-muted:  #99C4B0;
       --accent-hover:  #2C6E53;
 
-      --text-primary:  #192820;
-      --text-secondary:#445E52;
-      --text-muted:    #7A9A8C;
+      --accent-2:       #2B4560;
+      --accent-2-light: #DCE4EB;
+      --accent-2-muted: #8DA0B3;
 
-      --shadow-sm: 0 1px 4px rgba(42,110,85,0.07);
-      --shadow-md: 0 6px 24px rgba(42,110,85,0.13);
+      --accent-3:       #C0392B;
+      --accent-3-light: #F5D9D5;
+
+      --highlight:      #C0392B;
+
+      --text-primary:  #16181A;
+      --text-secondary:#4B5250;
+      --text-muted:    #838B88;
+
+      --shadow-sm: 0 1px 4px rgba(20,24,22,0.06);
+      --shadow-md: 0 6px 24px rgba(20,24,22,0.12);
       --shadow-modal: 0 20px 60px rgba(0,0,0,0.18);
 
       --radius:    10px;
@@ -159,14 +169,13 @@
       font-weight: 700;
       letter-spacing: -1.6px;
       line-height: 1.1;
-      color: var(--text-primary);
+      color: var(--accent-2);
       margin-bottom: 20px;
     }
     .hero-tagline {
       font-size: 16px;
       color: var(--text-secondary);
       max-width: 500px;
-      margin-bottom: 36px;
       line-height: 1.75;
     }
     .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -312,8 +321,10 @@
 
     .card-header {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      row-gap: 6px;
       gap: 10px;
     }
     .card-category {
@@ -329,8 +340,14 @@
     }
     .card-period {
       font-size: 11.5px;
-      color: var(--text-muted);
+      color: var(--accent-2);
       font-family: 'JetBrains Mono', monospace;
+      background: var(--accent-2-light);
+      border: 1px solid var(--accent-2-muted);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: auto;
+      white-space: nowrap;
     }
     .card-title {
       font-size: 17px;
@@ -365,7 +382,7 @@
     .metric-value {
       font-size: 15px;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--accent-3);
       font-family: 'JetBrains Mono', monospace;
       letter-spacing: -0.4px;
       line-height: 1.2;
@@ -381,21 +398,22 @@
     .stack-tag {
       font-size: 11px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--accent-2);
       background: var(--surface-2);
-      border: 1px solid var(--border);
+      border: 1px solid var(--accent-2-muted);
       padding: 2px 8px;
       border-radius: 4px;
     }
     .card-footer {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
+      gap: 12px;
       border-top: 1px solid var(--border-light);
       padding-top: 13px;
       margin-top: 2px;
     }
-    .card-role { font-size: 11.5px; color: var(--text-muted); }
+    .card-role { font-size: 11.5px; color: var(--text-muted); flex: 1; min-width: 0; line-height: 1.5; }
     .card-hint {
       font-size: 12px;
       font-weight: 600;
@@ -403,6 +421,9 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      margin-top: 1px;
     }
     .card:hover .card-hint { color: var(--accent); }
 
@@ -441,7 +462,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(15,28,22,0.55);
+      background: rgba(17,19,18,0.55);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
       z-index: 500;
@@ -530,8 +551,12 @@
     }
     .modal-period {
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--accent-2);
       font-family: 'JetBrains Mono', monospace;
+      background: var(--accent-2-light);
+      border: 1px solid var(--accent-2-muted);
+      padding: 2px 9px;
+      border-radius: 4px;
     }
     .modal-title {
       font-size: 26px;
@@ -612,7 +637,7 @@
       line-height: 1.7;
       margin-bottom: 18px;
     }
-    .result-summary strong { color: var(--accent); font-weight: 700; }
+    .result-summary strong { color: var(--accent-3); font-weight: 700; }
 
     /* ── Results: comparison bar ── */
     .comparison-block {
@@ -632,7 +657,7 @@
     }
     .bar-rows { display: flex; flex-direction: column; gap: 9px; margin-bottom: 12px; }
     .bar-row { display: flex; align-items: center; gap: 10px; }
-    .bar-row-label { font-size: 12px; color: var(--text-secondary); min-width: 150px; flex-shrink: 0; }
+    .bar-row-label { font-size: 12px; color: var(--text-secondary); width: 170px; flex-shrink: 0; line-height: 1.4; }
     .bar-track {
       flex: 1;
       height: 7px;
@@ -645,7 +670,8 @@
       border-radius: 4px;
       background: var(--accent-muted);
     }
-    .bar-fill.hi { background: var(--accent); }
+    .bar-fill.hi { background: var(--highlight); }
+    .bar-num.hi { color: var(--highlight); }
     .bar-num {
       font-size: 13px;
       font-weight: 700;
@@ -657,8 +683,8 @@
     .bar-delta {
       font-size: 11.5px;
       font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-light);
+      color: var(--accent-3);
+      background: var(--accent-3-light);
       border-radius: 4px;
       padding: 1px 7px;
       white-space: nowrap;
@@ -670,6 +696,7 @@
       border-top: 1px solid var(--border-light);
       padding-top: 10px;
     }
+    .comparison-note strong { color: var(--highlight); font-weight: 700; }
 
     /* ── Results: metric interpretation list ── */
     .metric-interp-list { display: flex; flex-direction: column; gap: 9px; }
@@ -685,26 +712,27 @@
     .metric-interp-num {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      min-width: 68px;
+      align-items: flex-start;
+      width: 160px;
       flex-shrink: 0;
       padding-top: 1px;
     }
     .metric-interp-value {
-      font-size: 19px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: -0.5px;
+      color: var(--accent-3);
+      font-family: 'Pretendard', 'Inter', sans-serif;
+      letter-spacing: -0.2px;
       line-height: 1.1;
+      margin-top: 3px;
+      text-align: left;
     }
     .metric-interp-label {
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--accent-mid);
-      text-align: right;
-      margin-top: 3px;
-      letter-spacing: 0.3px;
+      text-align: left;
+      letter-spacing: 0.2px;
       text-transform: uppercase;
     }
     .metric-interp-body { flex: 1; min-width: 0; }
@@ -721,14 +749,38 @@
       line-height: 1.6;
     }
 
+    /* ── Diagram block ── */
+    .modal-diagram {
+      background: var(--surface-2);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 16px 16px 12px;
+    }
+    .modal-diagram svg { width: 100%; height: auto; display: block; }
+    .diagram-caption {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border-light);
+      padding-top: 10px;
+      margin-top: 12px;
+    }
+    .dg-label  { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--text-secondary); }
+    .dg-axis   { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--text-muted); }
+    .dg-value  { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; }
+    .dg-k      { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: var(--text-secondary); }
+    .dg-title  { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: var(--text-primary); }
+    .dg-sub    { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--text-muted); }
+    .dg-zone   { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; fill: var(--accent-mid); letter-spacing: 0.6px; }
+
     /* Modal stack */
     .modal-stack { display: flex; flex-wrap: wrap; gap: 7px; }
     .modal-stack-tag {
       font-size: 12.5px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--accent-2);
       background: var(--surface-2);
-      border: 1px solid var(--border);
+      border: 1px solid var(--accent-2-muted);
       padding: 4px 11px;
       border-radius: var(--radius-sm);
     }
@@ -756,12 +808,11 @@
       max-width: 1080px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
     }
-    .footer-left { font-size: 13px; color: var(--text-muted); }
     .footer-links { display: flex; gap: 22px; }
     .footer-links a {
       font-size: 13px;
@@ -788,7 +839,7 @@
       .section { padding: 52px 5%; }
       .modal-body { padding: 4px 20px 24px; }
       .modal-metrics { gap: 7px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-inner { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -800,9 +851,8 @@
     <span class="nav-logo">Portfolio</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="/resume.html">Resume</a></li>
+      <li><a href="https://blog.naver.com/hkc3511" target="_blank">Blog</a></li>
+      <li><a href="mailto:hkc3511@naver.com">Email</a></li>
     </ul>
   </div>
 </nav>
@@ -813,32 +863,11 @@
     <p class="hero-eyebrow">Data Analyst · Data Scientist</p>
     <h1 class="hero-name">
       한경찬
-      <!-- TODO: 본인 이름으로 교체 -->
     </h1>
     <p class="hero-tagline">
       데이터에서 의사결정 근거를 만드는 데이터 분석가.<br>
       EDA 설계부터 모델 해석까지, 분석의 모든 판단을 수치로 정당화합니다.
     </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        프로젝트 보기
-      </a>
-      <a href="/resume.html" class="btn-ghost">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        Resume
-      </a>
-      <a href="https://blog.naver.com/hkc3511" target="_blank" class="btn-ghost">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        Blog
-      </a>
-      <a href="mailto:hkc3511@naver.com" class="btn-ghost">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email
-      </a>
-    </div>
   </div>
 
   <!-- Profile photo -->
@@ -869,18 +898,19 @@
   <div class="about-grid">
     <div class="about-text">
       <p>
-        기술 구현보다 <strong>분석 방향 설계와 의사결정 근거 수립</strong>에 집중하는
-        데이터 분석가입니다. 실무 프로젝트에서 데이터 누수 방지 원칙 수립,
-        복합 타겟 변수 설계, 모델 분리 실험 구조 기획 등을 직접 주도했습니다.
+        <strong>분석 방향을 설계하고 실제 의사결정에 필요한 근거를 수립하는</strong>
+        데이터 분석가입니다. 실무 프로젝트에서 데이터 전처리 및 누수 방지 원칙 수립,
+        모델링·실험 구조 기획을 직접 주도했습니다.
       </p>
       <p>
-        "왜 이 접근법인가"를 항상 데이터와 수치로 정당화하며,
-        <strong>EDA 인사이트가 피처 설계로 이어지는 과정</strong>을 중시합니다.
-        팀 프로젝트에서도 분석 기획 전 단계를 이끄는 PM형 역할을 자주 맡습니다.
+        <strong>통계적 판단력에 더해, 이를 직접 구현할 기술 스택까지 갖추고 있습니다.</strong>
+        AI Agent와 LLM 기반 시스템을 설계할 때는 "모델이 틀릴 수 있다"는 전제에서 출발합니다.
+        최종 판단이 필요한 지점은 검증 가능한 로직에 맡기고, LLM은 설명이나 검색처럼 보조적인 역할만
+        담당하도록 역할을 나눠 신뢰할 수 있는 구조를 만듭니다.
       </p>
       <p>
-        분석 설계 역량에 더해, <strong>백엔드 서비스 레이어 설계부터 인증·DB 구축,
-        배포 환경 연동까지</strong> 아우르는 엔지니어링 실행력도 갖추고 있습니다.
+        분석 설계가 중심이지만, 필요하면 백엔드 서비스 레이어 설계·인증·DB 구축·배포 환경 연동까지
+        직접 처리할 수 있는 엔지니어링 실행력도 갖추고 있습니다.
       </p>
     </div>
     <div class="about-skills">
@@ -889,9 +919,11 @@
         <div class="skill-tags">
           <span class="tag">XGBoost</span>
           <span class="tag">LightGBM</span>
-          <span class="tag">CatBoost</span>
           <span class="tag">scikit-learn</span>
           <span class="tag">PyTorch</span>
+          <span class="tag">NLP</span>
+          <span class="tag">LLM</span>
+          <span class="tag">RAG</span>
         </div>
       </div>
       <div class="skill-row">
@@ -902,7 +934,6 @@
           <span class="tag">SQL</span>
           <span class="tag">MySQL</span>
           <span class="tag">PostgreSQL</span>
-          <span class="tag">Parquet</span>
         </div>
       </div>
       <div class="skill-row">
@@ -911,6 +942,7 @@
           <span class="tag">matplotlib</span>
           <span class="tag">seaborn</span>
           <span class="tag">Plotly</span>
+          <span class="tag">Dashboard</span>
         </div>
       </div>
       <div class="skill-row">
@@ -940,47 +972,35 @@
 
   <div class="projects-grid">
 
-    <!-- Tiger.inc — 2026.07~09 (진행 중) -->
+    <!-- Tiger.inc — 2026.07.10~09.03 -->
     <div class="card" onclick="openModal('tigerinc')" role="button" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('tigerinc')">
       <div class="card-header">
-        <span class="card-category">AI Agent · Rule Engine</span>
-        <span class="card-period">2026.07–09 · 진행 중</span>
+        <span class="card-category">AI · LLM · Anomaly Detection</span>
+        <span class="card-period">2026.07–09</span>
       </div>
       <div>
         <div class="card-title">Tiger.inc</div>
         <div class="card-subtitle">Hybrid AI 법인카드 경비 정산 자동화 플랫폼</div>
       </div>
       <p class="card-desc">
-        "Rule First, AI Assisted" — 결정론적 Rule Engine이 판정의 1차 주체이고
-        LLM은 규칙 생성과 모호 케이스 보조에만 개입하는 정산 자동화 플랫폼.
-        3-Agent 구조 설계, 재현성 중심 룰엔진 파이프라인, RAG 파이프라인 설계를 담당하고 있습니다.
+        회계 담당자가 영수증 보며 내규를 일일이 뒤져 승인·반려를 정하던 반복 노동을 줄이는 정산 플랫폼.
+        판정은 결정론적 Rule Engine이, 초안 작성·규정 해석·이상거래 설명은 AI 3개 파이프라인이 맡습니다.
+        Draft·Rule·Risk Review Agent 개발과 비지도 이상탐지 모델링을 담당했고,
+        Agent마다 다른 방식(출력 스키마 제한·액션 화이트리스트·근거 대조 검증)으로
+        AI가 낼 수 없는 값을 구조로 막았습니다.
       </p>
-      <div class="card-metrics">
-        <div class="metric">
-          <span class="metric-value">58개</span>
-          <span class="metric-label">규정 → 실행 룰 명세</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">3</span>
-          <span class="metric-label">Agent 구조 설계</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">12종</span>
-          <span class="metric-label">정산 상태 머신</span>
-        </div>
-      </div>
       <div class="card-stack">
         <span class="stack-tag">Python</span>
-        <span class="stack-tag">Django</span>
         <span class="stack-tag">FastAPI</span>
         <span class="stack-tag">FastMCP</span>
-        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">OpenAI</span>
         <span class="stack-tag">ChromaDB</span>
         <span class="stack-tag">scikit-learn</span>
+        <span class="stack-tag">Django</span>
       </div>
       <div class="card-footer">
-        <span class="card-role">팀 프로젝트 (5인) · AI Agent 설계 · Rule Engine</span>
+        <span class="card-role">팀 프로젝트 (5인) · AI Agent 개발 · ML 이상탐지 · 문서 정합성 관리</span>
         <span class="card-hint">
           자세히 보기
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1120,20 +1140,12 @@
       </div>
     </div>
 
-    <!-- Placeholder -->
-    <div class="card-placeholder">
-      <div class="placeholder-icon">+</div>
-      <span class="placeholder-text">Coming Soon</span>
-      <span class="placeholder-sub">다음 프로젝트 준비 중</span>
-    </div>
-
   </div>
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer id="contact">
   <div class="footer-inner">
-    <div class="footer-left">© 2026 한경찬 · Data Analyst</div>
     <div class="footer-links">
       <a href="https://github.com/kchan28" target="_blank">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
@@ -1142,10 +1154,6 @@
       <a href="mailto:hkc3511@naver.com">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
-      </a>
-      <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
       </a>
     </div>
   </div>
@@ -1167,45 +1175,163 @@
   const projects = {
 
     tigerinc: {
-      category: 'AI Agent · Rule Engine',
-      period: '2026.07 – 09 (진행 중)',
+      category: 'AI · LLM · Anomaly Detection',
+      period: '2026.07 – 09',
       title: 'Tiger.inc',
       subtitle: 'Hybrid AI 법인카드 경비 정산 자동화 플랫폼',
-      team: '팀 프로젝트 (5인) · AI Agent 설계 · Rule Engine (ML 공동 분담)',
+      team: '팀 프로젝트 (5인) · AI Agent 개발 · ML 이상탐지 · 문서 정합성 관리',
       github: 'https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN29-FINAL-1TEAM',
       overview: `
-        가상의 IT기업(임직원 1,050명 규모)을 대상으로 설계한 법인카드 경비 정산 자동화 플랫폼입니다.
-        핵심 철학은 "Rule First, AI Assisted" — 결정론적 Rule Engine이 정산 판정의 1차 주체이고,
-        LLM은 규칙 초안 생성과 모호 케이스 보조 검토에만 개입하며, 최종 확정권은 항상 사람에게 있습니다.
-        Draft / Rule / Risk Review 3-Agent 구조 설계, 재현성 중심 룰엔진 파이프라인,
-        규정 문서 기반 RAG 파이프라인 설계를 담당하고 있으며,
-        12종 상태 enum 기반 정산 상태 머신과 Capability 기반 RBAC 등 워크플로우 설계에도 참여했습니다.
-        ※ 진행 중 프로젝트(~2026.09)로, 비전 모델 영수증 판독 연동·룰 시뮬레이션 엔드투엔드 연결·
-        RAG 임베딩 적재는 현재 구현 진행 단계입니다.
+        회계 담당자가 영수증을 보면서 내규를 일일이 뒤져 승인·반려를 정하는 건 지금도 반복 노동입니다.
+        법인카드 정산 승인/반려는 항상 결정론적 Rule Engine이 판정합니다 — AI가 개별 정산 건의
+        최종 승인/반려를 직접 내리는 경로는 시스템 어디에도 없습니다. <strong>Draft(초안 작성) /
+        Rule(규정→룰 변환) / Risk Review(이상거래 설명) 3개의 독립 AI 보조 파이프라인</strong> 개발과
+        <strong>비지도 이상탐지 모델링</strong>을 담당했고, 프로젝트 문서를 정리하고 검토했습니다.
+        Agent마다 "AI가 낼 수 없는 값"을 막는 방식이 다릅니다 — Draft는 출력 스키마 제한,
+        Rule은 액션 화이트리스트, Risk Review는 근거 대조 검증. 프롬프트 지시가 아니라
+        구조로 경계를 강제한다는 점이 세 파이프라인을 관통하는 설계 원칙입니다.
       `,
       decisions: [
         {
-          title: '재현성을 아키텍처로 강제 — 룰엔진 3단 파이프라인',
-          desc: 'EvalContext 조립(I/O 허용) → 그래프 선택 → 결정론적 순회(순수함수, I/O 0)의 3단 분리. 모든 데이터 접근을 조립 단계에 격리하여 "엔진은 Postgres를 모른다"를 원칙화. rule_hits에 순회 경로 + 판정 시점 EvalContext 스냅샷 + 그래프 버전을 저장해, 같은 (스냅샷, 버전) 입력은 항상 같은 판정을 재현 — 감사·디버깅·시뮬레이션이 동일 코드 경로를 공유.'
+          title: '[설계 출발점] 가상기업 페르소나로 검증 가능한 문제 재구성',
+          desc: '실제 기업의 정산 데이터·내규는 공개되지 않아서, 가상기업 "타이거 주식회사"를 직접 설계해 검증 가능한 문제로 재구성했습니다. 조직도·부서·직급 체계부터 만들고, 여기서 파생된 사내 규정 6종(법인카드·업무추진비·출장비·회식·식대·회의비)과 법령 3종, 증빙 서식 8종까지 갖췄습니다. 사용자도 4개 역할로 구체화했습니다 — 임직원(정산 때문에 본업 집중이 어렵다 → 내 지출 화면), 팀장(제출 전 일일이 검토해야 문제를 찾는다 → 팀 취합 제출 화면), 회계 담당자(대부분 정상인데 결국 다 봐야 한다 → 검토 워크스페이스·Rule 콘솔), 임원(예산이 어디서 새는지 감으로 판단한다 → 거버넌스 대시보드). 실제 인가는 역할이 아니라 6개 Capability 단위로 설계해서, 룰을 만드는 사람(rule_view)과 활성화하는 사람(rule_activate)이 다를 수 있게 했습니다.'
         },
         {
-          title: '화이트리스트 조건 DSL — LLM 생성 룰의 안전 경계 설계',
-          desc: 'LLM이 생성하는 룰이 임의 코드 실행이 되지 않도록 JSON-Logic류 화이트리스트 연산자(and/or/not·비교·in·var)만 허용. 파생 계산(직책 한도 min 연산, 영업일 경과, 심야 판정 등)은 조립기가 미리 산출하고 DSL은 단순 비교만 수행 — 표현력과 안전성의 경계를 도메인 구조로 제한.'
+          title: '[Draft Agent] 결정론적 엔진의 dry-run 결과를 그대로 따라간다',
+          desc: '영수증 이미지를 올리면 OpenAI Vision이 판독하고, 그 결과와 EvalContext를 결정론적 엔진에 한 번 더 흘려보내 dry-run 판정을 미리 확인합니다. Draft Agent가 만들 수 있는 값은 스키마가 있는 값에만 넘겨줄 수 있도록 하기 위해 출력 스키마 자체에서 제한을 했습니다. Tool 호출도 모델이 직접 고르지 않고 코드가 미리 정해서 넘겨주다 보니, 반복 검색이나 재시도 없이 한 번의 구조화 출력으로 끝납니다. 엄밀히는 tool을 스스로 선택하는 Agent라기보다 워크플로우처럼 보일 수 있으나, 독립 파이프라인으로 분리되어 있어 나머지 둘과 함께 핵심 3개 Agent로 분류했습니다(증빙자료 추출·결정 사유 초안 등 보조 Agent도 있습니다).'
         },
         {
-          title: '규정 문서 → 실행 룰 58개 명세 + RAG/Rule 역할 경계 판단',
-          desc: '사내 규정 4종에서 활성 룰 58개(공통 14·업무추진비 14·회식 16·출장 14)를 필드 정의·심각도·우선순위 포함해 명세화. 명시적 인용이 없는 "묵시적 특별규정"(예: 청탁금지법 대상자 경조사비 한도)은 RAG 검색으로 잡히지 않음을 실제 규정 데이터로 확인하고, 결정론적 룰로 이관하는 판단 기준을 수립 — RAG와 Rule의 역할 경계를 데이터로 검증.'
+          title: '[Rule Agent] AI가 낼 수 있는 최악의 결과는 "한 번 더 검토"',
+          desc: '규정 문서를 룰로 바꾸는 Rule Agent가 LLM으로 만들 수 있는 액션은 REJECT·RETURN·REVIEW뿐이고, 출력 스키마 자체에 PASS가 없습니다. 그래프에는 조립기가 자동으로 붙이는 종단 PASS 노드가 있지만, LLM이 만든 노드는 PASS를 낼 수 없어 룰을 더해도 통과가 늘어날 수 없고 줄어들기만 합니다. 여기에 더해 scope 그래프 자체가 GLOBAL 게이트가 PASS일 때만 도는 구조라, 종단 PASS는 게이트가 이미 내린 결정을 보존할 뿐입니다. 조건식도 AI가 직접 코드를 짜게 두는 대신 and·or·비교 같은 몇 가지 연산자만 조합할 수 있는 전용 표현식(DSL)으로만 쓰게 해서 임의 코드 실행 가능성 자체를 차단했습니다. 활성화 전 구조 검증(순환·미참조 변수 등)은 필수로 걸려 있고, 시뮬레이션은 활성화 요청 단계에서 이력이 없으면 막히는 방식으로 요구됩니다. 같은 원칙이 생성과 적용 양쪽에 걸려 있습니다 — Rule Agent가 만드는 노드가 REJECT/RETURN/REVIEW뿐이듯, Rule Engine의 REJECT도 실제로는 재제출 가능한 RETURNED이지 사람이 아닌 규칙이 되돌릴 수 없는 최종반려를 내리지 않습니다.'
         },
         {
-          title: 'RAG 청킹 설계 — 조(條) 단위 그레인 + 크로스레퍼런스 보존',
-          desc: '4개 규정 문서 61개 조문을 전수 실측(글자수·항 개수·표 포함 여부)한 뒤, 인용 요건(출처 조항 반환)과 규칙 생성 맥락 보존을 절충한 조 단위 기본 그레인 + 항 인라인 마킹으로 결정. 문서 내부/문서 간 참조를 정규식으로 추출해 메타데이터에 반영 — 의도적으로 분리된 파라미터(회식 22시 야간판정 ≠ 출장 18시 야간식대)의 유실을 방지.'
+          title: '[Risk Review] 라벨 0건 콜드스타트 — 대안 10종과 비교해 통계 검정으로 확정',
+          desc: '서비스 배포 전에는 회계 담당자의 승인/반려 기록이 0건이고, 카드사 부정사용 라벨은 회사 내규와 정의가 달라 정답으로 쓸 수 없었습니다. Isolation Forest를 택한 이유는 특별히 뛰어나서가 아니라, 라벨 없이 쓸 수 있는 대안 10종과 비교했을 때 상대적으로 가장 나은 성능을 보였기 때문입니다 — 1회 채점에서 PR-AUC 0.5865로 2위 COPOD(0.5330)를 앞섰습니다. 한 번의 채점을 그대로 믿지 않고 5-fold 교차검증으로 다시 확인했고(IF 0.589±0.049, COPOD 0.567±0.055), 그 결과에 paired t-test를 적용해 통계적 유의성을 확인했습니다(t=4.929, p=0.0079). 이 점수는 승인/반려에 직접 쓰이지 않고 "얼마나 깊게 검토할지"를 정하는 신호로만 쓰이며, 룰 엔진의 판정과는 완전히 분리된 시스템입니다.'
         },
         {
-          title: '비지도 이상탐지 접근 설계 (ML 공동 분담)',
-          desc: '레이블 없는 내부 정책 위반 탐지 문제로 정의(외부 FDS와 구분)하고 비지도 접근을 채택. Isolation Forest 등 10종 이상 비교와 페어드 t-test(IF vs COPOD, p=0.0079) 기반 모델 선정, StratifiedGroupKFold(카드 단위 그룹핑) + 시간 기반 test 분할의 이중 검증 설계에 공동 참여. 서빙 연동은 진행 중.'
+          title: '[Risk Review] 비율 목표 대신 위험 밀도로 3단계 분기',
+          desc: '단순히 상위 N%를 잘라 LLM 호출을 줄이면, 확신이 없는 애매한 건이 하위 구간에 섞여 들어가 LLM 0회로 새어나가는 문제가 생깁니다. 그래서 비율 목표를 미리 정해두는 대신 위험 밀도가 실제로 갈리는 지점(score 0.011·0.072)으로 3단계를 나눴습니다 — 하위 약 20%(score < 0.011)는 위험 관측이 사실상 없어 LOW(LLM 호출 0회), 상위 약 10%(score ≥ 0.072)는 밀도가 뚜렷이 높아 HIGH(heavy 검증), 애매한 나머지 약 70%는 비대한 게 정상이라 fast로 한 번은 검토합니다. 다만 이 분리점은 seed 채택 185건·위험 라벨 5건(2.7%)이라는 작은 표본에서 나온 것이라, 코드 주석에도 "분리점이 아니라 힌트"라고 명시돼 있습니다.'
+        },
+        {
+          title: '[Multi-Agent 협업] 직접 통신 대신 Blackboard 패턴',
+          desc: '3개 Agent는 서로를 직접 부르지 않습니다. 대신 Postgres(EvalContext 스냅샷·RuleGraph·정산 레코드)와 Chroma(정책 문서 벡터)라는 공용 저장소에 각자 결과를 남기고, 다른 구성요소가 그걸 읽어서 이어 씁니다. 예를 들어 증빙자료 추출 Agent가 참석자명단·회식실시확인서에서 읽어낸 확인 인원이 EvalContext에 올라가면, Rule Engine은 그 값으로 확인 기준 1인당 한도를 계산하고 Risk Review Agent는 사용자가 입력한 신고 인원과 확인 인원의 차이를 봅니다 — 셋 다 서로를 부르지 않았는데 각자 다른 사실을 보고 할 일을 했습니다. 신고값과 확인값을 애초에 다른 필드로 분리해 둔 것도 같은 이유입니다 — 예전엔 같은 값을 두고 다투다 사람이 적게 쓴 값이 늘 이겼는데, 이제는 서로 다른 사실이라 다투지 않습니다. 조율은 LLM이 아니라 Django 상태머신과 Rule Engine이 맡습니다.'
+        },
+        {
+          title: '[Rule Agent] RAG 청킹 단위 — 조(條) 기준 + fail-open',
+          desc: '규정 문서는 조(條) 단위로 청킹했습니다. 문단 단위로 임의로 자르면 서로 다른 조문 내용이 한 조각에 섞여 들어가, 검색됐을 때 엉뚱한 조문이 인용되는 문제가 생기기 때문입니다. 검색 자체는 이 작은 조 단위 조각으로 이뤄지지만, 실제로 LLM에게 넘길 때는 그 조 전체를 다시 붙여주는 Parent-Child 방식을 써서 문맥이 끊기지 않게 했습니다. 다만 parent를 그대로 임베딩하면 긴 조문에서 벡터가 평균화돼 무엇과도 안 닮게 되기 때문에, parent는 앞 400자만 임베딩하고 표는 별도의 독립 청크로 분리했습니다. 검색 결과를 한 번 더 걸러내는 재선별 단계가 실패했을 때는 "관련 없음"으로 처리하지 않고 원본 검색 결과를 그대로 살립니다.'
+        },
+        {
+          title: '[지표 설계] "자동처리율 = PASS 비율"의 함정을 바로잡다',
+          desc: '자동처리율을 단순히 PASS 비율로 정의하면, 룰을 정교하게 다듬을수록 오히려 지표가 나빠지는 함정이 있습니다 — REVIEW·RETURN처럼 사람이 다시 봐야 하는 경우가 하나만 늘어도 PASS 비율이 떨어지기 때문입니다. 그래서 "1 − (검토 필요 건 / 전체)"로 지표 정의 자체를 다시 잡아, 룰이 정교해질수록 지표가 실제로 개선되도록 맞췄습니다. rule_eval로 룰 버전별 자동처리율·오탐·미탐을 실측 채점하는 체계도 이때 같이 만들었습니다.'
         }
       ],
-      stack: ['Python', 'Django 5 + DRF', 'FastAPI', 'FastMCP', 'React/Vite', 'PostgreSQL', 'ChromaDB', 'OpenAI (LLM + Vision)', 'scikit-learn', 'Docker Compose', 'pdfplumber / camelot']
+      diagram: {
+        title: '전체 시스템 흐름 — 판정 시점과 두 개의 별도 트랙',
+        svg: `<svg viewBox="0 0 640 520" role="img" aria-label="팀 취합 시점에 확정되는 Rule Engine 판정, RAG 적재를 포함한 Rule Agent 트랙, 회계 담당자와 회계팀장이 각자 다른 화면에서 맡는 구조">
+  <rect x="20" y="14" width="280" height="40" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="160" y="38" text-anchor="middle">영수증 업로드</text>
+
+  <path d="M160 54 L160 66" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M156 60 L160 66 L164 60" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="20" y="68" width="280" height="54" rx="6" fill="#CBE8D8" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="160" y="90" text-anchor="middle">Draft Agent (AI)</text>
+  <text class="dg-sub"   x="160" y="108" text-anchor="middle">Vision 판독 · dry-run 미리보기(기록 없음)</text>
+
+  <path d="M160 122 L160 134" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M156 128 L160 134 L164 128" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="20" y="136" width="280" height="64" rx="6" fill="#DCE4EB" stroke="#2B4560" stroke-width="1"/>
+  <text class="dg-title" x="160" y="162" text-anchor="middle">팀 취합 → Rule Engine 판정</text>
+  <text class="dg-sub"   x="160" y="182" text-anchor="middle">여기서 이미 확정 (PASS·REVIEW·RETURNED)</text>
+
+  <path d="M100 200 L100 220" stroke="#838B88" stroke-width="1.3" fill="none"/>
+  <path d="M96 214 L100 220 L104 214" stroke="#838B88" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="dg-axis" x="20" y="214" text-anchor="start">REVIEW만</text>
+
+  <path d="M250 200 L250 296" stroke="#838B88" stroke-width="1.3" fill="none"/>
+  <path d="M246 290 L250 296 L254 290" stroke="#838B88" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="dg-axis" x="264" y="214" text-anchor="start">PASS 등 직행</text>
+
+  <rect x="20" y="222" width="180" height="54" rx="6" fill="#CBE8D8" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="110" y="244" text-anchor="middle">Risk Review (AI)</text>
+  <text class="dg-sub"   x="110" y="262" text-anchor="middle">등급별 검증(LOW~HIGH)</text>
+
+  <path d="M110 276 L110 296" stroke="#838B88" stroke-width="1.3" fill="none"/>
+  <path d="M106 290 L110 296 L114 290" stroke="#838B88" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="20" y="298" width="280" height="54" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="160" y="320" text-anchor="middle">회계 제출</text>
+  <text class="dg-sub"   x="160" y="338" text-anchor="middle">판정 재사용 · RETURNED 재제출은 재판정</text>
+
+  <path d="M160 352 L160 364" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M156 358 L160 364 L164 358" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="20" y="366" width="280" height="64" rx="6" fill="#F5D9D5" stroke="#C0392B" stroke-width="1"/>
+  <text class="dg-title" x="160" y="392" text-anchor="middle">회계 담당자 확정</text>
+  <text class="dg-sub"   x="160" y="412" text-anchor="middle">CONFIRMED · 사람의 REJECT만 최종반려</text>
+
+  <path d="M160 430 L160 448" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M156 442 L160 448 L164 442" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="20" y="450" width="280" height="46" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="dg-title" x="160" y="470" text-anchor="middle">ERP 전표(안) 생성</text>
+  <text class="dg-sub"   x="160" y="486" text-anchor="middle">실제 연동은 프로젝트 범위 밖</text>
+
+  <rect x="340" y="14" width="280" height="40" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="480" y="38" text-anchor="middle">규정 문서 업로드 (PolicyDoc)</text>
+
+  <path d="M480 54 L480 66" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M476 60 L480 66 L484 60" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="340" y="68" width="280" height="50" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="480" y="88" text-anchor="middle">RAG 적재</text>
+  <text class="dg-sub"   x="480" y="106" text-anchor="middle">파싱 → 교정 → 조 단위 청킹 → 임베딩 → 적재</text>
+
+  <path d="M480 118 L480 130" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M476 124 L480 130 L484 124" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="340" y="132" width="280" height="54" rx="6" fill="#CBE8D8" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="480" y="154" text-anchor="middle">Rule Agent (AI)</text>
+  <text class="dg-sub"   x="480" y="172" text-anchor="middle">RAG로 룰 후보 + 임계값표 후보 작성</text>
+
+  <path d="M480 186 L480 198" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M476 192 L480 198 L484 192" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="340" y="200" width="280" height="54" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="480" y="222" text-anchor="middle">시뮬레이션 · 활성화 요청</text>
+  <text class="dg-sub"   x="480" y="240" text-anchor="middle">rule_view 권한 · 검토 코멘트 필수</text>
+
+  <path d="M480 254 L480 266" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M476 260 L480 266 L484 260" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="340" y="268" width="280" height="60" rx="6" fill="#F5D9D5" stroke="#C0392B" stroke-width="1"/>
+  <text class="dg-title" x="480" y="294" text-anchor="middle">활성화 → RuleGraph ACTIVE</text>
+  <text class="dg-sub"   x="480" y="314" text-anchor="middle">회계팀장(rule_activate)만 가능</text>
+</svg>`,
+        caption: '판정은 "팀 취합" 시점에 이미 확정되고, 회계 제출은 그 결과를 재사용합니다. RETURNED(엔진의 REJECT 포함, 재제출 가능)만 팀 취합을 건너뛰고 재판정되며, 진짜 최종반려는 회계 담당자가 직접 누르는 REJECT뿐입니다. 오른쪽 트랙은 규정 문서가 RAG로 적재된 뒤 Rule Agent가 룰 후보를 만들고, 활성화는 회계팀장만 할 수 있어 두 트랙의 최종 결정자가 다릅니다. 팀장의 TEAM_RETURN 결정·PolicyTable 승인·EvalContext 구성 등 일부는 지면상 생략했습니다.'
+      },
+      results: {
+        summary: 'Isolation Forest는 대안 <strong>10종</strong>과 비교한 1회 채점에서 PR-AUC 최고 성능(<strong>0.5865</strong>)을 기록했고, 5-fold 교차검증 결과에 paired t-test를 적용해 통계적 유의성을 확인했습니다(<strong>p=0.0079</strong>). 이 점수는 비율 목표가 아니라 위험 밀도가 실제로 갈리는 지점으로 LOW·MEDIUM·HIGH 3단계 검토 경로를 나누는 데 씁니다.',
+        comparison: {
+          label: '비지도 이상탐지 모델 비교 — PR-AUC (콜드스타트, 라벨 0건)',
+          rows: [
+            { label: 'Isolation Forest', value: '0.587', pct: 58.7, highlight: true },
+            { label: 'COPOD', value: '0.533', pct: 53.3 },
+            { label: 'One-Class SVM', value: '0.432', pct: 43.2 },
+            { label: 'ECOD', value: '0.429', pct: 42.9 }
+          ],
+          note: '비지도 10종 중 개별 수치가 명확한 상위 4개 모델입니다. 나머지 6종(CBLOF·PCA·INNE·GMM은 0.34~0.39, LOF·LODA는 0.03~0.07)은 그룹으로 묶어 실측했고 격차가 더 컸습니다. p=0.0079는 1위 Isolation Forest와 2위 COPOD를 5-fold paired t-test로 검정한 결과이며, 단순 수치 차이가 아니라 통계적으로 유의미한 차이임을 확인한 것입니다.'
+        },
+        metrics: [
+          {
+            value: '22% → 5.6%', label: '출장 룰 오탐율 (rule_eval 실측)',
+            meaning: '증빙 확인이 안 된 것과 증빙이 아예 없는 것을 구분하는 조건을 추가해, 출장 룰의 오탐율을 22%에서 5.6%까지 줄였습니다.',
+            context: '자체 구성한 검증셋 300건 기준으로는 자동처리율이 26%에서 100%로, 오탐은 0%까지 개선을 확인했습니다 — 실제 운영 트래픽이 아니라 통제된 검증셋 결과입니다. "자동처리율 = PASS 비율"로 정의하면 룰을 더할수록 지표가 나빠지는 함정이 있어, 지표 정의 자체를 바로잡은 뒤 측정한 결과입니다.'
+          }
+        ]
+      },
+      stack: ['Python', 'FastAPI', 'FastMCP 2.4', 'OpenAI SDK', 'Chroma', 'text-embedding-3-large', 'docling', 'scikit-learn', 'Isolation Forest', 'Django 5.1 + DRF', 'PostgreSQL 16', 'Docker Compose']
     },
 
     trendit: {
@@ -1239,14 +1365,45 @@
           desc: 'latency_to_trend 분포 분석을 통해 pretrend_view_velocity 피처를 제안. 시각화에서 발견한 시간대 주기성을 hour_sin/cos 인코딩으로 반영. EDA → 피처 설계 → 모델 성능 기여의 인과 연결을 유지.'
         }
       ],
+      diagram: {
+        title: '데이터 누수 방지 구조 — T0 / T0+24h 모델 분리',
+        svg: `<svg viewBox="0 0 640 250" role="img" aria-label="T0과 T0+24h 모델 분리 구조, 사후 정보 12개 변수 제외 경계">
+  <rect x="220" y="16" width="200" height="48" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="320" y="40" text-anchor="middle">원본 데이터</text>
+  <text class="dg-sub"   x="320" y="56" text-anchor="middle">트렌딩 진입 시점 스냅샷</text>
+
+  <line x1="30" y1="90" x2="610" y2="90" stroke="#99C4B0" stroke-width="1" stroke-dasharray="5 4"/>
+  <text class="dg-zone" x="320" y="83" text-anchor="middle">누수 방지 경계 — 사후 정보 12개 변수 제외</text>
+
+  <path d="M225 90 L178 114" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M183 106 L178 114 L189 116" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M415 90 L462 114" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M457 116 L462 114 L451 106" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="60" y="118" width="230" height="64" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="175" y="144" text-anchor="middle">T0 모델</text>
+  <text class="dg-sub"   x="175" y="164" text-anchor="middle">진입 시점 정보만 사용</text>
+
+  <rect x="350" y="118" width="230" height="64" rx="6" fill="#CBE8D8" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="465" y="144" text-anchor="middle">T0 + 24h 모델</text>
+  <text class="dg-sub"   x="465" y="164" text-anchor="middle">초기 반응 데이터 추가</text>
+
+  <text class="dg-value" x="175" y="212" text-anchor="middle" fill="#838B88">PR-AUC 0.582</text>
+  <text class="dg-value" x="465" y="212" text-anchor="middle" fill="#3A876A">PR-AUC 0.661 (+13.6%)</text>
+
+  <text class="dg-axis" x="320" y="238" text-anchor="middle">두 모델은 완전히 분리된 파이프라인 — 정보 시점 오염 없이 실용 시나리오를 구분</text>
+</svg>`,
+        caption: '트렌딩 진입 이후 확보되는 사후 정보 12개 변수를 설계 단계에서 전면 제외해, T0 모델이 24시간 반응 데이터를 우연히라도 참조하지 못하도록 파이프라인 자체를 분리했습니다. 클러스터링 과정에서 발견한 Y변수 누수(cluster_id)도 같은 원칙으로 EDA 전용 격리 처리했습니다.'
+      },
       results: {
         summary: '트렌딩 진입 직후에도 <strong>AUC 0.83</strong>으로 지속성 판별 가능. 24시간 반응 데이터 추가 시 예측 정밀도 <strong>+13.6%</strong> 추가 향상.',
         comparison: {
           label: '핵심 실험 · T0 only vs T0 + 24h 반응 데이터 (PR-AUC)',
-          before: { label: 'T0 only  — 진입 시점 정보만', value: 0.582, pct: 58.2 },
-          after:  { label: 'T0 + 24h — 초기 반응 포함',   value: 0.661, pct: 66.1 },
-          delta: '+13.6%',
-          note: '콘텐츠 업로드 직후 예측(T0)과 하루 뒤 예측(T0+24h)의 정보 가치 차이를 실험으로 분리·정량화. 24시간 초기 반응 데이터가 예측력에 실질적으로 기여함을 PR-AUC로 검증.'
+          rows: [
+            { label: 'T0 only', value: '0.582', pct: 58.2 },
+            { label: 'T0 + 24h', value: '0.661', pct: 66.1, highlight: true }
+          ],
+          note: '콘텐츠 업로드 직후 예측(T0)과 하루 뒤 예측(T0+24h)의 정보 가치 차이를 실험으로 분리·정량화. 24시간 초기 반응 데이터가 예측력에 실질적으로 기여함을 PR-AUC로 검증했습니다(T0 대비 <strong>+13.6%</strong>).'
         },
         metrics: [
           {
@@ -1271,14 +1428,14 @@
 
     anshim: {
       category: 'RAG · LLM · Backend',
-      period: '2026.06.15–16 (Phase 1) · 2026.07.08–09 (Phase 2)',
+      period: '2026.06 (Phase 1) · 2026.07 (Phase 2)',
       title: '이젠, 안쉼',
       subtitle: '청년 지원 통합 탐색 에이전트 → Django 리뉴얼·실배포',
       team: '팀 프로젝트 (5인) · Backend Core Lead (Phase 2) · Backend 설계 참여 (Phase 1)',
       github: 'https://github.com/idenist/SKN29-4th-5TEAM',
       overview: `
-        온통청년(정책), K-Startup(창업), 고용24(교육훈련) 등 분산된 청년 지원 정보를 통합해
-        AI 챗봇으로 맞춤 정책을 추천하는 서비스입니다. Phase 1(프로토타입, 2026.06)에서는
+        온통청년(정책), K-Startup(창업), 고용24(교육훈련) 등 공공데이터포털 기반 오픈 API로 분산된
+        청년 지원 정보를 통합해 AI 챗봇으로 맞춤 정책을 추천하는 서비스입니다. Phase 1(프로토타입, 2026.06)에서는
         FastAPI + LangGraph 기반 RAG 프로토타입으로 시작해 서비스 레이어 설계와
         Neo4j Hybrid RAG 구현 등 백엔드 설계 일부를 담당했고, Phase 2(리뉴얼·배포, 2026.07)에서는
         Django REST Framework 기반으로 백엔드 전체를 리빌드하며 인증·정책·커뮤니티·알림·업로드 등
@@ -1297,16 +1454,16 @@
           desc: 'Simple JWT 기반 인증에 refresh token rotation을 적용하고, 만료·손상된 JWT가 있어도 로그인 등 AllowAny 엔드포인트가 막히지 않도록 Optional JWT 인증 처리를 직접 설계. 로그인 실패 누적 시 비밀번호 재설정 유도 등 인증 실패가 전체 API 접근을 막지 않도록 방어 설계.'
         },
         {
-          title: '[Phase 2] Django Admin + 외부 서비스 연동',
-          desc: '프로필 이미지 업로드(S3), 이메일 인증(Gmail SMTP) 등 외부 서비스 연동을 백엔드 레이어에 통합하고, 운영 관리를 위한 Django Admin 구성을 담당.'
+          title: '[Phase 2] 운영 가능한 서비스로 — "실제로 켜졌을 때 필요한 것" 기준으로 통합',
+          desc: '도메인 로직만 짜서는 서비스가 돌아가지 않습니다. 프로필 이미지는 어딘가에 저장돼야 하고(S3), 회원가입은 실제 이메일로 검증돼야 하고(Gmail SMTP), 운영자는 데이터를 들여다볼 화면이 있어야 합니다(Django Admin). 이 셋을 개별 태스크로 처리한 게 아니라 "서비스가 실제로 켜졌을 때 무엇이 있어야 하는가"라는 하나의 기준으로 묶어 백엔드 레이어에 통합했습니다.'
         },
         {
           title: '[Phase 2] PostgreSQL DB 구축 및 EC2 배포 서버 백엔드·프론트 연동',
           desc: 'AWS RDS PostgreSQL로 서비스 DB를 직접 구축. 배포 서버(EC2) 자체를 띄우는 작업은 팀 내 인프라 담당자가 진행했으나, 해당 EC2 서버에 접속해 Docker 컨테이너 환경에서 Django 백엔드와 React 프론트엔드를 연동·검증하는 작업을 직접 수행.'
         },
         {
-          title: '[Phase 2] 기능 테스트 수행 — 전체 테스트 케이스 37건 전건 Pass',
-          desc: '인증/권한, 정책 검색, 커뮤니티 등 백엔드 담당 영역의 기능 테스트를 직접 수행. 팀 전체 테스트 케이스 37건이 로컬/기능 단위 검증에서 전건 Pass를 기록 (테스트 계획·결과 보고서 작성은 팀 QA 담당 협업). 캠프 종료 후 배포 서버는 현재 종료된 상태.'
+          title: '[Phase 2] 기능 테스트 수행 — 방어 설계가 실제로 방어하는지 직접 확인',
+          desc: '인증/권한, 정책 검색, 커뮤니티 등 백엔드 담당 영역의 기능 테스트를 직접 수행했습니다. 특히 Optional JWT 처리처럼 "정상 케이스"보다 "예외 케이스"가 더 중요한 로직은 만료·손상 토큰 상황을 직접 재현해 의도대로 막히지 않는지 확인했습니다. 팀 전체 테스트 케이스 37건이 로컬/기능 단위 검증에서 전건 Pass를 기록했습니다(테스트 계획·결과 보고서 작성은 팀 QA 담당과 협업). 캠프 종료 후 배포 서버는 현재 종료된 상태입니다.'
         },
         {
           title: '[Phase 1] FastAPI 서비스 레이어 설계 — 데이터 흐름의 계약 정의',
@@ -1314,13 +1471,98 @@
         },
         {
           title: '[Phase 1] Neo4j Hybrid RAG 구현 — Vector 한계를 Graph로 보완',
-          desc: 'ChromaDB Vector 검색(의미 유사도)은 범주·관계 기반 질의에 취약. Item → Domain 관계를 Neo4j Graph DB에 저장하여 Cypher 쿼리로 보완. Vector 상위 5개 + Graph 신규 2개를 hybrid_merge_node에서 중복 제거 후 최종 7개로 병합하는 파이프라인을 직접 구현. Neo4j 연결 실패 시 Vector 파이프라인으로 자동 전환(graceful degradation)하는 방어 설계도 포함.'
-        },
-        {
-          title: '[Phase 1] 평가 기획 기준 전체 점검 — 팀 기술 QA 리드',
-          desc: '20여 개 평가 항목을 기준으로 팀 전체 구현물의 누락·오류를 디테일하게 점검하고 결과를 전원에게 공유·반영. 예외 처리 누락, 평가 항목 미충족 등을 직접 탐지하여 수정 요청.'
+          desc: 'ChromaDB Vector 검색(의미 유사도)은 범주·관계 기반 질의에 취약. Item → Domain 관계를 Neo4j Graph DB에 저장하여 Cypher 쿼리로 보완. Vector 상위 5개 + Graph 신규 2개를 hybrid_merge_node에서 중복 제거 후 최종 7개로 병합하는 파이프라인을 직접 구현. Neo4j 연결 실패 시 Vector 파이프라인으로 자동 전환(graceful degradation)하는 방어 설계도 포함했고, 팀 전체 구현물을 20여 개 평가 항목으로 점검하는 과정에서 이 fallback 로직처럼 정상 경로만 보면 통과한 것 같지만 예외 경로에서 조용히 깨지는 유형의 누락을 확인해 전원에게 공유·반영했습니다.'
         }
       ],
+      diagram: {
+        title: 'Phase 2 백엔드 요청 처리 흐름 — 도메인별 앱 라우팅',
+        svg: `<svg viewBox="0 0 640 372" role="img" aria-label="클라이언트 요청부터 Optional JWT 인증, 도메인별 앱 라우팅, 외부 서비스 연동, 응답 반환까지의 백엔드 흐름">
+  <rect x="220" y="14" width="200" height="54" rx="6" fill="#CBE8D8" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="320" y="40" text-anchor="middle">클라이언트 요청</text>
+  <text class="dg-sub"   x="320" y="60" text-anchor="middle">인증 헤더 포함 요청</text>
+
+  <path d="M320 68 L320 88" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M316 82 L320 88 L324 82" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="140" y="90" width="360" height="64" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="320" y="116" text-anchor="middle">Optional JWT 인증 계층</text>
+  <text class="dg-sub"   x="320" y="136" text-anchor="middle">만료·손상 토큰도 AllowAny 엔드포인트는 통과</text>
+
+  <path d="M320 154 L320 174" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M316 168 L320 174 L324 168" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="34" y="176" width="572" height="74" rx="6" fill="none" stroke="#99C4B0" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="dg-zone" x="44" y="169">도메인별 앱 라우팅</text>
+
+  <path d="M320 154 L96 186"  stroke="#DCE1DE" stroke-width="1.2" fill="none"/>
+  <path d="M320 154 L208 186" stroke="#DCE1DE" stroke-width="1.2" fill="none"/>
+  <path d="M320 154 L432 186" stroke="#DCE1DE" stroke-width="1.2" fill="none"/>
+  <path d="M320 154 L544 186" stroke="#DCE1DE" stroke-width="1.2" fill="none"/>
+
+  <rect x="44"  y="186" width="104" height="54" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="96" y="218" text-anchor="middle">인증</text>
+
+  <rect x="156" y="186" width="104" height="54" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="208" y="218" text-anchor="middle">정책</text>
+
+  <rect x="268" y="186" width="104" height="54" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="320" y="218" text-anchor="middle">커뮤니티</text>
+
+  <rect x="380" y="186" width="104" height="54" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="432" y="218" text-anchor="middle">알림</text>
+
+  <rect x="492" y="186" width="104" height="54" rx="6" fill="#FFFFFF" stroke="#3A876A" stroke-width="1"/>
+  <text class="dg-title" x="544" y="218" text-anchor="middle">업로드</text>
+
+  <path d="M432 240 L428 264" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M425 258 L428 264 L432 259" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M544 240 L548 264" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M545 259 L548 264 L551 258" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="368" y="266" width="120" height="48" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="428" y="286" text-anchor="middle">Gmail SMTP</text>
+  <text class="dg-sub"   x="428" y="304" text-anchor="middle">이메일 인증</text>
+
+  <rect x="498" y="266" width="100" height="48" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="548" y="286" text-anchor="middle">AWS S3</text>
+  <text class="dg-sub"   x="548" y="304" text-anchor="middle">이미지 업로드</text>
+
+  <path d="M320 240 L320 320" stroke="#838B88" stroke-width="1.5" fill="none"/>
+  <path d="M316 314 L320 320 L324 314" stroke="#838B88" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="44" y="326" width="552" height="34" rx="6" fill="#F1F3F2" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-title" x="320" y="348" text-anchor="middle">응답 반환 — DRF Serializer 표준 포맷</text>
+</svg>`,
+        caption: 'Phase 2에서 직접 리딩한 백엔드 요청 처리 흐름입니다. Optional JWT 인증 계층을 두어 만료·손상된 토큰이 있어도 로그인 등 AllowAny 엔드포인트가 막히지 않도록 설계했고, 인증을 통과한 요청은 users·policies·community·notifications·uploads 등 도메인별 앱으로 라우팅됩니다. 알림 도메인은 Gmail SMTP, 업로드 도메인은 AWS S3와 직접 연동되며, 전 도메인 응답은 DRF Serializer로 표준화해 반환합니다. (AI 챗봇 RAG 파이프라인 이식은 팀 내 AI Backend 담당자가 별도로 진행)'
+      },
+      results: {
+        summary: '안쉼의 핵심은 성능 숫자가 아니라 <strong>Phase 1 프로토타입을 Phase 2에서 백엔드 전체 구조로 리빌드하고 실제 배포까지 이어간 것</strong>입니다. 단일 서비스 레이어였던 FastAPI 프로토타입을 users·policies·community·notifications·uploads·common <strong>6개</strong> 도메인 앱으로 분리 설계했고, AWS RDS PostgreSQL 구축과 EC2·Docker 환경 연동까지 직접 수행했습니다.',
+        comparison: {
+          label: 'Phase 1 → Phase 2 — 백엔드 구조 확장',
+          rows: [
+            { label: 'Phase 1 프로토타입', value: '1개 서비스 레이어', pct: 17 },
+            { label: 'Phase 2 Django 리빌드', value: '6개 도메인 앱', pct: 100, highlight: true }
+          ],
+          note: 'Phase 1은 FastAPI 단일 서비스 레이어로 Streamlit 프론트와의 API 계약만 정의하는 프로토타입이었습니다. Phase 2에서는 이를 Django REST Framework 기반으로 전면 리빌드하며 인증·정책·커뮤니티·알림·업로드·공통 6개 앱으로 도메인을 분리 설계했고, AWS RDS PostgreSQL 구축부터 EC2 서버 접속 후 Docker 컨테이너 환경에서 백엔드·프론트 연동·검증까지 직접 수행했습니다.'
+        },
+        metrics: [
+          {
+            value: '6개', label: '도메인 앱 구조',
+            meaning: 'Django REST Framework 기반으로 users·policies·community·notifications·uploads·common 앱을 도메인별로 분리 설계.',
+            context: 'Phase 2 백엔드 전체를 리딩하며 직접 설계한 구조. 각 앱이 독립적으로 배포·테스트 가능하도록 경계를 나눴습니다.'
+          },
+          {
+            value: 'Pass', label: 'Optional JWT 방어 검증',
+            meaning: '만료·손상된 토큰이 있어도 로그인 등 AllowAny 엔드포인트가 막히지 않는지 직접 재현해 확인.',
+            context: '팀 전체 기능 테스트 케이스 37건이 로컬 검증에서 전건 Pass — 이 중 인증 예외 케이스가 핵심 검증 대상이었습니다.'
+          },
+          {
+            value: 'EC2', label: '배포 환경 연동',
+            meaning: 'AWS RDS PostgreSQL로 서비스 DB를 직접 구축하고, EC2 서버에 접속해 Docker 컨테이너 환경에서 Django 백엔드와 React 프론트를 연동·검증.',
+            context: '서버 프로비저닝 자체는 팀 내 인프라 담당자가 진행했으나, 실제 배포 환경에서 백엔드가 정상 동작하는지 확인하는 작업을 직접 수행했습니다. 캠프 종료 후 배포 서버는 현재 종료된 상태입니다.'
+          }
+        ]
+      },
       stack: ['Python', 'Django', 'Django REST Framework', 'Simple JWT', 'FastAPI', 'Streamlit', 'LangGraph', 'ChromaDB', 'Neo4j', 'OpenAI', 'PostgreSQL', 'AWS', 'Docker', 'Nginx']
     }
 
@@ -1332,7 +1574,7 @@
       title: 'Forecasting Bitcoin and Ethereum Prices: A Markov Regime-Switching HAR Framework Based on Their Co-Movement',
       subtitle: '학부 연구 논문 · 시계열 금융 분석',
       team: '공동 연구 (지도교수) · 제1저자 · 모델링 실험 구현 주도',
-      github: '#',
+      github: 'https://github.com/kchan28/Forecasting-Bitcoin-Ethereum-Prices',
       overview: `
         Bitcoin과 Ethereum의 가격 공동 예측을 위한 Markov Regime-Switching HAR 모델을 제안한 학부 연구 논문입니다.
         2016.03–2024.11 일별 가격 데이터 3,188건을 사용하여 AR / HAR 총 48개 모델을 전수 비교하고,
@@ -1366,23 +1608,50 @@
           desc: 'AR(1–4) × 4 Markov 조합, HAR(2–4) × 4 Markov 조합, 단일·이변량 기준 모델까지 총 48개 조합의 비교 실험 코드를 직접 구현·실행. 적합 지표(RMSE, MAE, AIC, BIC)와 예측 지표(RMSE_k, MAE_k, MAPE_k, RRSE_k, k=1,3,7,10)를 분리 평가하여 "적합이 좋다 ≠ 예측이 좋다"는 한계를 직접 해석·정리. HAR(3)-M(ρ*,182) 최종 선정 근거를 수치로 정당화. Introduction 집필을 통해 연구 배경·문헌 위치·기여점을 명확히 서술하고 Conclusion에서 모델 한계와 future work(다중 암호화폐 확장, 다중 임계값 기반 상태 세분화, 외생 변수 결합 등)를 구체화.'
         }
       ],
+      diagram: {
+        title: '레짐 정보의 예측 기여 — ETH 구간별 비대칭',
+        svg: `<svg viewBox="0 0 640 258" role="img" aria-label="ETH MAPE 델타: Markov HAR 대비 단변량 HAR, k=1,3,7,10">
+  <text class="dg-axis" x="16" y="44">↑ 단변량 HAR 우위</text>
+  <text class="dg-axis" x="16" y="152">↓ Markov HAR 우위</text>
+
+  <line x1="150" y1="96" x2="630" y2="96" stroke="#DCE1DE" stroke-width="1"/>
+  <text class="dg-axis" x="144" y="100" text-anchor="end">0</text>
+
+  <text class="dg-k" x="210" y="40" text-anchor="middle">k = 1</text>
+  <text class="dg-k" x="340" y="40" text-anchor="middle">k = 3</text>
+  <text class="dg-k" x="470" y="40" text-anchor="middle">k = 7</text>
+  <text class="dg-k" x="590" y="40" text-anchor="middle">k = 10</text>
+
+  <rect x="175" y="96"   width="70" height="4"   rx="1" fill="#3A876A"/>
+  <rect x="305" y="74"   width="70" height="22"  rx="1" fill="#C08D77"/>
+  <rect x="435" y="84"   width="70" height="12"  rx="1" fill="#C08D77"/>
+  <rect x="555" y="96"   width="70" height="130" rx="1" fill="#3A876A"/>
+
+  <text class="dg-value" x="210" y="116" text-anchor="middle" fill="#3A876A">−0.007</text>
+  <text class="dg-value" x="340" y="68"  text-anchor="middle" fill="#A8735E">+0.043</text>
+  <text class="dg-value" x="470" y="78"  text-anchor="middle" fill="#A8735E">+0.023</text>
+  <text class="dg-value" x="590" y="244" text-anchor="middle" fill="#3A876A">−0.260</text>
+</svg>`,
+        caption: 'ETH MAPE 차이(Markov − 단변량, %p 단위). 두 모델의 MAPE를 그대로 겹쳐 그리면 차이가 0.02~0.04%p라 선이 포개져 판독이 불가능하므로, 차이 자체를 0 기준선 기준으로 표시했습니다. k=3·k=7에서 단변량이 역전하지만 그 폭은 미미하고, k=10에서 Markov 우위가 압도적(−0.26%p)입니다. BTC는 k=1~10 전 구간에서 Markov가 우위이며 k=10 기준 −0.775%p(7.205→6.430)로, ETH와 달리 역전 구간이 존재하지 않습니다.'
+      },
       results: {
         summary: '<strong>BTC</strong>는 k=1~10 전 구간에서 Markov HAR이 단변량 HAR을 능가. <strong>ETH</strong>는 단기(k=1)와 장기(k=10)에서는 Markov 우위이나, 중기(k=3,7)에서는 단변량이 역전 — 레짐 정보의 예측 기여가 자산과 예측 구간에 따라 비대칭적임을 실증.',
         comparison: {
           label: 'BTC 10단계(k=10) MAPE 비교 · 단변량 HAR(3) vs Markov HAR(3)-M(ρ*,182)',
-          before: { label: 'HAR(3) Univariate  — 레짐 미반영', value: 7.205, pct: 72.1 },
-          after:  { label: 'HAR(3) M(ρ*,182) — Markov 레짐 반영', value: 6.430, pct: 64.3 },
-          delta: '−10.8%',
-          note: 'BTC는 k=1~10 전 구간에서 Markov HAR이 단변량을 능가. ETH는 k=1(2.363%→2.356%)·k=10(8.00%→7.74%)에서 Markov 우위이나, k=3(4.483% vs 4.526%)·k=7(6.632% vs 6.655%)에서 단변량이 소폭 역전. 레짐 공동 모델이 ETH 중기 예측에는 noise를 유발하는 구간이 존재함을 확인.'
+          rows: [
+            { label: 'HAR(3) Univariate', value: '7.205', pct: 72.1 },
+            { label: 'HAR(3) M(ρ*,182)', value: '6.430', pct: 64.3, highlight: true }
+          ],
+          note: 'BTC는 k=10 기준 Markov HAR이 단변량 대비 <strong>MAPE −10.8%</strong> 개선(7.205%→6.430%)했고, k=1~10 전 구간에서 단변량을 능가합니다. ETH는 k=1(2.363%→2.356%)·k=10(8.00%→7.74%)에서 Markov 우위이나, k=3(4.483% vs 4.526%)·k=7(6.632% vs 6.655%)에서 단변량이 소폭 역전. 레짐 공동 모델이 ETH 중기 예측에는 noise를 유발하는 구간이 존재함을 확인.'
         },
         metrics: [
           {
-            value: '전구간 ↓', label: 'BTC MAPE',
+            value: 'k=1–10', label: 'BTC MAPE',
             meaning: 'BTC는 k=1(1.84%)부터 k=10(6.43%)까지 전 구간에서 Markov HAR이 단변량 HAR을 일관되게 능가.',
             context: 'k=10 기준: Univariate 7.20% → M(ρ*,182) 6.43%, 약 10.8% 개선. 레짐 정보가 BTC 예측에는 전 구간에서 유효하게 기여.'
           },
           {
-            value: '비대칭', label: 'ETH MAPE',
+            value: 'k=3,7 역전', label: 'ETH MAPE',
             meaning: 'ETH는 k=1(2.356%, Markov 우위)·k=10(7.74%, Markov 우위)이나 k=3(4.526%)·k=7(6.655%)에서 단변량(4.483%·6.632%)에 소폭 역전.',
             context: '역전 폭은 0.02~0.04%p로 작지만 k=3·k=7에서 일관됨. ETH 중기 예측에서 공동 레짐 모델이 noise를 유발하는 구간이 존재 — 두 자산의 상관 구조가 예측 기여에 비대칭적으로 작용.'
           },
@@ -1413,35 +1682,46 @@
       </div>
     `).join('');
 
+    let diagramHtml = '';
+    if (p.diagram) {
+      diagramHtml = `
+      <div class="modal-section">
+        <div class="modal-section-title">${p.diagram.title}</div>
+        <div class="modal-diagram">
+          ${p.diagram.svg}
+          <p class="diagram-caption">${p.diagram.caption}</p>
+        </div>
+      </div>`;
+    }
+
     let resultsHtml = '';
     if (p.results) {
       const r = p.results;
       const cmp = r.comparison;
+      const barRowsHtml = cmp.rows.map(row => `
+            <div class="bar-row">
+              <span class="bar-row-label">${row.label}</span>
+              <div class="bar-track"><div class="bar-fill${row.highlight ? ' hi' : ''}" style="width:${row.pct}%"></div></div>
+              <span class="bar-num${row.highlight ? ' hi' : ''}">${row.value}</span>
+              ${row.delta ? `<span class="bar-delta">${row.delta}</span>` : ''}
+            </div>
+      `).join('');
       resultsHtml = `
         <div class="result-summary">${r.summary}</div>
         <div class="comparison-block">
           <div class="comparison-label">${cmp.label}</div>
           <div class="bar-rows">
-            <div class="bar-row">
-              <span class="bar-row-label">${cmp.before.label}</span>
-              <div class="bar-track"><div class="bar-fill" style="width:${cmp.before.pct}%"></div></div>
-              <span class="bar-num">${cmp.before.value}</span>
-            </div>
-            <div class="bar-row">
-              <span class="bar-row-label">${cmp.after.label}</span>
-              <div class="bar-track"><div class="bar-fill hi" style="width:${cmp.after.pct}%"></div></div>
-              <span class="bar-num">${cmp.after.value}</span>
-              <span class="bar-delta">${cmp.delta}</span>
-            </div>
+            ${barRowsHtml}
           </div>
           <p class="comparison-note">${cmp.note}</p>
         </div>
+        ${r.metrics && r.metrics.length ? `
         <div class="metric-interp-list">
           ${r.metrics.map(m => `
             <div class="metric-interp">
               <div class="metric-interp-num">
-                <span class="metric-interp-value">${m.value}</span>
                 <span class="metric-interp-label">${m.label}</span>
+                <span class="metric-interp-value">${m.value}</span>
               </div>
               <div class="metric-interp-body">
                 <div class="metric-interp-meaning">${m.meaning}</div>
@@ -1449,7 +1729,7 @@
               </div>
             </div>
           `).join('')}
-        </div>
+        </div>` : ''}
       `;
     }
 
@@ -1476,6 +1756,8 @@
         <div class="modal-section-title">핵심 설계 판단</div>
         <div class="decision-list">${decisionsHtml}</div>
       </div>
+
+      ${diagramHtml}
 
       ${resultsHtml ? `
       <div class="modal-section">
