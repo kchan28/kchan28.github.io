@@ -53,7 +53,6 @@
     ════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    .section, header.hero { scroll-margin-top: 64px; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
@@ -179,7 +178,7 @@
       max-width: 500px;
       line-height: 1.75;
     }
-    .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+    .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
 
     /* Profile photo */
     .hero-photo { flex-shrink: 0; }
@@ -850,6 +849,11 @@
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">Portfolio</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="https://blog.naver.com/hkc3511" target="_blank">Blog</a></li>
+      <li><a href="mailto:hkc3511@naver.com">Email</a></li>
+    </ul>
   </div>
 </nav>
 
@@ -862,33 +866,8 @@
     </h1>
     <p class="hero-tagline">
       데이터에서 의사결정 근거를 만드는 데이터 분석가.<br>
-      통계학 전공을 바탕으로,EDA 설계부터 모델 해석까지 분석의 모든 판단을 수치로 정당화합니다.
+      EDA 설계부터 모델 해석까지, 분석의 모든 판단을 수치로 정당화합니다.
     </p>
-
-    <div class="hero-cta">
-      <a href="#about" class="btn-ghost" onclick="return scrollToSection(event, 'about')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        About
-      </a>
-      <a href="#projects" class="btn-ghost" onclick="return scrollToSection(event, 'projects')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
-        Projects
-      </a>
-      <!-- GitHub 준비 중 — 완성 후 주석 해제
-      <a href="https://github.com/kchan28" target="_blank" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-        GitHub
-      </a>
-      -->
-      <a href="https://blog.naver.com/hkc3511" target="_blank" class="btn-ghost">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-        Blog
-      </a>
-      <a href="mailto:hkc3511@naver.com" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email
-      </a>
-    </div>
   </div>
 
   <!-- Profile photo--> 
@@ -1007,10 +986,8 @@
       </div>
       <p class="card-desc">
         회계 담당자가 영수증 보며 내규를 일일이 뒤져 승인·반려를 정하던 반복 노동을 줄이는 정산 플랫폼.
-        판정은 결정론적 Rule Engine이, 초안 작성·규정 해석·이상거래 설명은 AI 3개 파이프라인이 맡습니다.
-        195만 건 카드 거래 데이터 전처리·비지도 이상탐지 모델링과 Draft·Rule·Risk Review Agent 개발을
-        담당했고, Agent마다 다른 방식(출력 스키마 제한·액션 화이트리스트·근거 대조 검증)으로
-        AI가 낼 수 없는 값을 구조로 막았습니다.
+        판정은 결정론적 Rule Engine이 내리고, 초안 작성·규정 해석·이상거래 설명은 AI 3개 파이프라인이 보조합니다.
+        195만 건 카드 거래 데이터 전처리·비지도 이상탐지 모델링과 Draft·Rule·Risk Review Agent 개발을 담당했습니다.
       </p>
       <div class="card-stack">
         <span class="stack-tag">Python</span>
@@ -1022,7 +999,7 @@
         <span class="stack-tag">Django</span>
       </div>
       <div class="card-footer">
-        <span class="card-role">팀 프로젝트 (5인) · 데이터 전처리 · ML 이상탐지 설계 · AI Agent 개발 · 문서 정합성 관리</span>
+        <span class="card-role">팀 프로젝트 (5인) · 데이터 전처리 · ML 이상탐지 설계 · AI Agent 개발</span>
         <span class="card-hint">
           자세히 보기
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1168,7 +1145,16 @@
 <!-- ══════════ FOOTER ══════════ -->
 <footer id="contact">
   <div class="footer-inner">
-    <span style="font-size:12.5px; color:var(--text-muted);">© 2026 한경찬</span>
+    <div class="footer-links">
+      <a href="https://github.com/kchan28" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:hkc3511@naver.com">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -1195,47 +1181,38 @@
       team: '팀 프로젝트 (5인) · 데이터 전처리 · ML 이상탐지 설계 · AI Agent 개발 · 문서 정합성 관리',
       github: 'https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN29-FINAL-1TEAM',
       overview: `
-        회계 담당자가 영수증을 보면서 내규를 일일이 뒤져 승인·반려를 정하는 건 지금도 반복 노동입니다.
         법인카드 정산 승인/반려는 항상 결정론적 Rule Engine이 판정합니다 — AI가 개별 정산 건의
         최종 승인/반려를 직접 내리는 경로는 시스템 어디에도 없습니다. 195만 건 카드 거래 데이터
         전처리·<strong>비지도 이상탐지 모델링</strong>과 <strong>Draft(초안 작성) / Rule(규정→룰 변환) /
-        Risk Review(이상거래 설명) 3개의 독립 AI 보조 파이프라인</strong> 개발을 담당했고, 프로젝트
-        문서 정합성 검토도 맡았습니다. Agent마다 "AI가 낼 수 없는 값"을 막는 방식이 다릅니다 —
-        Draft는 출력 스키마 제한, Rule은 액션 화이트리스트, Risk Review는 근거 대조 검증.
-        프롬프트 지시가 아니라 구조로 경계를 강제한다는 점이 세 파이프라인을 관통하는 설계 원칙입니다.
+        Risk Review(이상거래 설명) 3개의 AI 보조 파이프라인</strong> 개발을 담당했습니다.
+        Agent마다 "AI가 낼 수 없는 값"을 막는 방식이 다릅니다 — Draft는 출력 스키마 제한,
+        Rule은 액션 화이트리스트, Risk Review는 근거 대조 검증. 프롬프트 지시가 아니라
+        구조로 경계를 강제하는 것이 관통하는 설계 원칙입니다.
       `,
       decisions: [
         {
           title: '[설계 출발점] 가상기업 페르소나로 검증 가능한 문제 재구성',
-          desc: '실제 기업의 정산 데이터·내규는 공개되지 않아서, 가상기업 "타이거 주식회사"를 직접 설계해 검증 가능한 문제로 재구성했습니다. 조직도·부서·직급 체계부터 만들고, 여기서 파생된 사내 규정 6종(법인카드·업무추진비·출장비·회식·식대·회의비)과 법령 3종, 증빙 서식 8종까지 갖췄습니다. 사용자도 4개 역할로 구체화했습니다 — 임직원(정산 때문에 본업 집중이 어렵다 → 내 지출 화면), 팀장(제출 전 일일이 검토해야 문제를 찾는다 → 팀 취합 제출 화면), 회계 담당자(대부분 정상인데 결국 다 봐야 한다 → 검토 워크스페이스·Rule 콘솔), 임원(예산이 어디서 새는지 감으로 판단한다 → 거버넌스 대시보드). 실제 인가는 역할이 아니라 6개 Capability 단위로 설계해서, 룰을 만드는 사람(rule_view)과 활성화하는 사람(rule_activate)이 다를 수 있게 했습니다.'
-        },
-        {
-          title: '[Draft Agent] 결정론적 엔진의 dry-run 결과를 그대로 따라간다',
-          desc: '영수증 이미지를 올리면 OpenAI Vision이 판독하고, 그 결과와 EvalContext를 결정론적 엔진에 한 번 더 흘려보내 dry-run 판정을 미리 확인합니다. Draft Agent가 만들 수 있는 값은 스키마가 있는 값에만 넘겨줄 수 있도록 하기 위해 출력 스키마 자체에서 제한을 했습니다. Tool 호출도 모델이 직접 고르지 않고 코드가 미리 정해서 넘겨주다 보니, 반복 검색이나 재시도 없이 한 번의 구조화 출력으로 끝납니다. 엄밀히는 tool을 스스로 선택하는 Agent라기보다 워크플로우처럼 보일 수 있으나, 독립 파이프라인으로 분리되어 있어 나머지 둘과 함께 핵심 3개 Agent로 분류했습니다(증빙자료 추출·결정 사유 초안 등 보조 Agent도 있습니다).'
+          desc: '실제 기업의 정산 데이터·내규는 공개되지 않아, 가상기업 "타이거 주식회사"를 조직도·직급체계·사내규정 6종·법령 3종까지 직접 설계해 검증 가능한 문제로 재구성했습니다. 인가는 역할이 아니라 6개 Capability 단위로 설계해, 룰을 만드는 사람과 활성화하는 사람을 분리했습니다.'
         },
         {
           title: '[Rule Agent] AI가 낼 수 있는 최악의 결과는 "한 번 더 검토"',
-          desc: '규정 문서를 룰로 바꾸는 Rule Agent가 LLM으로 만들 수 있는 액션은 REJECT·RETURN·REVIEW뿐이고, 출력 스키마 자체에 PASS가 없습니다. 그래프에는 조립기가 자동으로 붙이는 종단 PASS 노드가 있지만, LLM이 만든 노드는 PASS를 낼 수 없어 룰을 더해도 통과가 늘어날 수 없고 줄어들기만 합니다. 여기에 더해 scope 그래프 자체가 GLOBAL 게이트가 PASS일 때만 도는 구조라, 종단 PASS는 게이트가 이미 내린 결정을 보존할 뿐입니다. 조건식도 AI가 직접 코드를 짜게 두는 대신 and·or·비교 같은 몇 가지 연산자만 조합할 수 있는 전용 표현식(DSL)으로만 쓰게 해서 임의 코드 실행 가능성 자체를 차단했습니다. 활성화 전 구조 검증(순환·미참조 변수 등)은 필수로 걸려 있고, 시뮬레이션은 활성화 요청 단계에서 이력이 없으면 막히는 방식으로 요구됩니다. 같은 원칙이 생성과 적용 양쪽에 걸려 있습니다 — Rule Agent가 만드는 노드가 REJECT/RETURN/REVIEW뿐이듯, Rule Engine의 REJECT도 실제로는 재제출 가능한 RETURNED이지 사람이 아닌 규칙이 되돌릴 수 없는 최종반려를 내리지 않습니다.'
+          desc: 'Rule Agent의 출력 스키마 자체에 PASS가 없어, LLM이 만든 룰은 통과를 늘릴 수 없고 줄이기만 합니다. 조건식도 임의 코드 대신 몇 가지 연산자만 조합하는 전용 DSL로 제한했습니다. 같은 원칙이 Rule Engine에도 적용돼, 엔진의 REJECT조차 실제로는 재제출 가능한 RETURNED이고 최종반려는 사람만 낼 수 있습니다.'
         },
         {
-          title: '[Risk Review] 라벨 0건 콜드스타트 — 대안 10종과 비교해 통계 검정으로 확정',
-          desc: '서비스 배포 전에는 회계 담당자의 승인/반려 기록이 0건이고, 카드사 부정사용 라벨은 회사 내규와 정의가 달라 정답으로 쓸 수 없었습니다. Isolation Forest를 택한 이유는 특별히 뛰어나서가 아니라, 라벨 없이 쓸 수 있는 대안 10종과 비교했을 때 상대적으로 가장 나은 성능을 보였기 때문입니다 — 1회 채점에서 PR-AUC 0.5865로 2위 COPOD(0.5330)를 앞섰습니다. 한 번의 채점을 그대로 믿지 않고 5-fold 교차검증으로 다시 확인했고(IF 0.589±0.049, COPOD 0.567±0.055), 그 결과에 paired t-test를 적용해 통계적 유의성을 확인했습니다(t=4.929, p=0.0079). 이 점수는 승인/반려에 직접 쓰이지 않고 "얼마나 깊게 검토할지"를 정하는 신호로만 쓰이며, 룰 엔진의 판정과는 완전히 분리된 시스템입니다.'
+          title: '[Risk Review] 라벨 0건 콜드스타트 — 대안 10종과 통계 검정으로 확정',
+          desc: '서비스 배포 전에는 승인/반려 기록이 0건이라 지도학습을 쓸 수 없습니다. 라벨 없이 쓸 수 있는 비지도 10종과 비교해 Isolation Forest를 채택했고(PR-AUC 0.5865, 2위 COPOD 0.5330), 5-fold 교차검증 결과에 paired t-test로 통계적 유의성까지 확인했습니다(p=0.0079). 이 점수는 승인/반려가 아니라 "얼마나 깊게 검토할지"를 정하는 신호로만 씁니다.'
         },
         {
           title: '[Risk Review] 비율 목표 대신 위험 밀도로 3단계 분기',
-          desc: '단순히 상위 N%를 잘라 LLM 호출을 줄이면, 확신이 없는 애매한 건이 하위 구간에 섞여 들어가 LLM 0회로 새어나가는 문제가 생깁니다. 그래서 비율 목표를 미리 정해두는 대신 위험 밀도가 실제로 갈리는 지점(score 0.011·0.072)으로 3단계를 나눴습니다 — 하위 약 20%(score < 0.011)는 위험 관측이 사실상 없어 LOW(LLM 호출 0회), 상위 약 10%(score ≥ 0.072)는 밀도가 뚜렷이 높아 HIGH(heavy 검증), 애매한 나머지 약 70%는 비대한 게 정상이라 fast로 한 번은 검토합니다. 다만 이 분리점은 seed 채택 185건·위험 라벨 5건(2.7%)이라는 작은 표본에서 나온 것이라, 코드 주석에도 "분리점이 아니라 힌트"라고 명시돼 있습니다.'
+          desc: '상위 N%를 잘라 LLM 호출을 줄이면 애매한 건이 LLM 0회로 새어나갈 수 있어, 위험 밀도가 실제로 갈리는 지점으로 LOW/MEDIUM/HIGH를 나눴습니다. 다만 이 분리점은 위험 라벨 5건이라는 작은 표본에서 나온 값이라, 코드 주석에도 "분리점이 아니라 힌트"라고 명시해뒀습니다.'
         },
         {
           title: '[Multi-Agent 협업] 직접 통신 대신 Blackboard 패턴',
-          desc: '3개 Agent는 서로를 직접 부르지 않습니다. 대신 Postgres(EvalContext 스냅샷·RuleGraph·정산 레코드)와 Chroma(정책 문서 벡터)라는 공용 저장소에 각자 결과를 남기고, 다른 구성요소가 그걸 읽어서 이어 씁니다. 예를 들어 증빙자료 추출 Agent가 참석자명단·회식실시확인서에서 읽어낸 확인 인원이 EvalContext에 올라가면, Rule Engine은 그 값으로 확인 기준 1인당 한도를 계산하고 Risk Review Agent는 사용자가 입력한 신고 인원과 확인 인원의 차이를 봅니다 — 셋 다 서로를 부르지 않았는데 각자 다른 사실을 보고 할 일을 했습니다. 신고값과 확인값을 애초에 다른 필드로 분리해 둔 것도 같은 이유입니다 — 예전엔 같은 값을 두고 다투다 사람이 적게 쓴 값이 늘 이겼는데, 이제는 서로 다른 사실이라 다투지 않습니다. 조율은 LLM이 아니라 Django 상태머신과 Rule Engine이 맡습니다.'
-        },
-        {
-          title: '[Rule Agent] RAG 청킹 단위 — 조(條) 기준 + fail-open',
-          desc: '규정 문서는 조(條) 단위로 청킹했습니다. 문단 단위로 임의로 자르면 서로 다른 조문 내용이 한 조각에 섞여 들어가, 검색됐을 때 엉뚱한 조문이 인용되는 문제가 생기기 때문입니다. 검색 자체는 이 작은 조 단위 조각으로 이뤄지지만, 실제로 LLM에게 넘길 때는 그 조 전체를 다시 붙여주는 Parent-Child 방식을 써서 문맥이 끊기지 않게 했습니다. 다만 parent를 그대로 임베딩하면 긴 조문에서 벡터가 평균화돼 무엇과도 안 닮게 되기 때문에, parent는 앞 400자만 임베딩하고 표는 별도의 독립 청크로 분리했습니다. 검색 결과를 한 번 더 걸러내는 재선별 단계가 실패했을 때는 "관련 없음"으로 처리하지 않고 원본 검색 결과를 그대로 살립니다.'
+          desc: '3개 Agent는 서로를 직접 부르지 않고, Postgres·Chroma라는 공용 저장소에 결과를 남기고 다른 구성요소가 읽어서 이어 씁니다. 예를 들어 증빙 추출 Agent가 읽어낸 확인 인원이 EvalContext에 올라가면 Rule Engine과 Risk Review Agent가 각자 다른 방식으로 그 값을 씁니다. 신고값과 확인값도 애초에 다른 필드로 분리해, 같은 값을 두고 다투는 문제 자체를 없앴습니다.'
         },
         {
           title: '[지표 설계] "커버리지 100%"와 "운영 자동처리율"을 분리하다',
-          desc: '처음엔 자동처리율을 단순히 PASS 비율로 정의했는데, 룰을 정교하게 다듬을수록 오히려 지표가 나빠지는 함정이 있었습니다 — REVIEW·RETURN처럼 사람이 다시 봐야 하는 경우가 하나만 늘어도 PASS 비율이 떨어지기 때문입니다. "1 − (검토 필요 건 / 전체)"로 지표 정의를 바로잡아 룰이 정교해질수록 지표가 실제로 개선되도록 맞췄습니다. 그런데 이 검증셋(golden 300건)이 "정답이 자명한 건만" 담도록 설계돼 있어서, v7에서 나온 100%가 실제 운영 자동화 수준이 아니라 그 검증셋의 상한값이라는 걸 뒤늦게 발견했습니다. 지표 이름을 "룰 커버리지"로 바꾸고, 3개월 운영 시뮬레이션(185건)에서 따로 잰 "운영 자동처리율" 97.3%를 분리해서 보고하도록 고쳤습니다.'
+          desc: '처음엔 자동처리율=PASS 비율로 정의했다가, 룰을 정교화할수록 지표가 나빠지는 함정을 발견해 "1 − (검토 필요 건/전체)"로 바로잡았습니다. 이후 이 검증셋(golden 300건)이 "정답이 자명한 건만" 담도록 설계돼 있어, 여기서 나온 100%가 실제 운영 자동화 수준이 아니라 검증셋의 상한값이라는 것도 뒤늦게 발견했습니다. 지표 이름을 "룰 커버리지"로 바꾸고, 3개월 운영 시뮬레이션에서 실측한 "운영 자동처리율" 97.3%를 분리해서 제시하도록 고쳤습니다.'
         }
       ],
       diagram: {
@@ -1334,23 +1311,13 @@
             { label: 'One-Class SVM', value: '0.432', pct: 43.2 },
             { label: 'ECOD', value: '0.429', pct: 42.9 }
           ],
-          note: '비지도 10종 중 개별 수치가 명확한 상위 4개 모델입니다. 나머지 6종(CBLOF·PCA·INNE·GMM은 0.34~0.39, LOF·LODA는 0.03~0.07)은 그룹으로 묶어 실측했고 격차가 더 컸습니다. p=0.0079는 1위 Isolation Forest와 2위 COPOD를 5-fold paired t-test로 검정한 결과이며, 단순 수치 차이가 아니라 통계적으로 유의미한 차이임을 확인한 것입니다.'
+          note: '나머지 6종(CBLOF·PCA·INNE·GMM·LOF·LODA)은 0.03~0.39로 격차가 더 컸습니다. p=0.0079는 1위와 2위(COPOD)를 5-fold paired t-test로 검정한 결과입니다.'
         },
         metrics: [
           {
             value: '97.3%', label: '운영 자동처리율 (seed_adopted 185건 · 3개월 시뮬레이션)',
-            meaning: '실제 상태머신을 거친 정산 185건 중 사람이 다시 안 봐도 되는 비율입니다. 남은 검토 5건은 전부 규칙이 의도적으로 확정하지 않기로 한 청탁금지법 리스크입니다.',
-            context: '별도의 커버리지 검증셋(golden 300건, "정답이 자명한 건만" 담도록 설계)에서는 룰 커버리지가 26.3%→100%까지 올랐지만, 이 100%는 REVIEW가 정답인 케이스를 의도적으로 뺀 셋의 상한값입니다. v5 단계에서 게이트 상한을 넓히며 오탐 3.8%가 일시 발생했으나 v6에서 대응 룰을 추가해 즉시 0%로 복구했고, "운영 자동처리율"과 "룰 커버리지"는 이름부터 분리해서 제시했습니다.'
-          },
-          {
-            value: '54% → 69%', label: 'Risk Review Agent 정확도 (E2E 검증셋 100건)',
-            meaning: '결함 2건을 수정한 뒤 재평가해, 판정 정확도가 54%에서 69%로 개선되고 분류와 어긋난 권고는 52건에서 0건으로 줄었습니다.',
-            context: '동일 코드 경로의 라이브 QA(실제 OpenAI 호출·DB 저장, 50건)에서도 오탐율이 68%에서 17%로 낮아졌습니다. 남은 미탐 25건의 원인은 전달 누락·관용어 인식 한계·별표 값 미참조 3가지로 전부 특정해뒀습니다.'
-          },
-          {
-            value: 'MRR 0.906', label: 'RAG 검색 정확도 (Recall@5 0.950)',
-            meaning: '규정 문서 파싱·청킹·임베딩 파이프라인을 정량 평가해 검색 단계에서 MRR 0.906, Recall@5 0.950을 확인했습니다.',
-            context: '파싱 품질 89.3점, 청킹 품질 98.5점(조 경계 위반 1건)까지 하류 단계별로 나눠 채점했고, 이 검증을 통해 두 Agent가 공유하던 검색 스코프 누수 결함(scope 정합 100/100로 재검증 완료)을 발견·수정했습니다.'
+            meaning: '실제 상태머신을 거친 정산 185건 중 사람이 다시 안 봐도 되는 비율입니다. 남은 검토 5건은 전부 규칙이 의도적으로 확정하지 않는 청탁금지법 리스크입니다.',
+            context: '별도의 커버리지 검증셋(golden 300건)에서는 룰 커버리지가 26.3%→100%까지 올랐지만, 이 100%는 REVIEW가 정답인 케이스를 의도적으로 뺀 셋의 상한값입니다. "운영 자동처리율"과 "룰 커버리지"는 이름부터 분리해서 제시했습니다.'
           }
         ]
       },
@@ -1690,18 +1657,6 @@
 
   };
 
-  /* ─── Anchor scroll (accounts for sticky nav height) ─── */
-  function scrollToSection(e, id) {
-    e.preventDefault();
-    const target = document.getElementById(id);
-    const nav = document.querySelector('nav');
-    if (!target) return false;
-    const navHeight = nav ? nav.offsetHeight : 0;
-    const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
-    window.scrollTo({ top, behavior: 'smooth' });
-    return false;
-  }
-
   /* ─── Modal logic ─── */
   function openModal(id) {
     const p = projects[id];
@@ -1814,10 +1769,7 @@
       </div>
     `;
 
-    const box = document.getElementById('modalBox');
-    box.scrollTop = 0;                     // 이전 모달의 스크롤 위치 초기화
     document.getElementById('modalBackdrop').classList.add('visible');
-    requestAnimationFrame(() => { box.scrollTop = 0; });  // 렌더 직후 한 번 더 보정
     document.body.classList.add('modal-open');
   }
 
