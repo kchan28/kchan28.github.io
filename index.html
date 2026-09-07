@@ -2,6 +2,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Data Analyst</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -881,9 +886,9 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
       </a>
-      <a href="assets/한경찬_포트폴리오.pdf" target="_blank" class="btn-ghost">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
-        PDF 미리보기
+      <a href="portfolio.pdf" download class="btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        PDF 다운로드
       </a>
     </div>
   </div>
@@ -917,12 +922,12 @@
   <div class="about-grid">
     <div class="about-text">
       <p>
-        <strong>분석 방향을 설계하고 실제 의사결정에 필요한 근거를 수립하는</strong>
+        <strong>통계학을 전공했고 분석 방향 설계와 실제 의사결정에 필요한 근거를 수립하는</strong>
         데이터 분석가입니다. 실무 프로젝트에서 데이터 전처리 및 누수 방지 원칙 수립,
         모델링·실험 구조 기획을 직접 주도했습니다.
       </p>
       <p>
-        <strong>통계적 판단력에 더해, 이를 직접 구현할 기술 스택까지 갖추고 있습니다.</strong>
+        <strong>통계적 판단력에 더해 이를 직접 구현할 기술 스택까지 갖추고 있습니다.</strong>
         AI Agent와 LLM 기반 시스템을 설계할 때는 "모델이 틀릴 수 있다"는 전제에서 출발합니다.
         최종 판단이 필요한 지점은 검증 가능한 로직에 맡기고, LLM은 설명이나 검색처럼 보조적인 역할만
         담당하도록 역할을 나눠 신뢰할 수 있는 구조를 만듭니다.
